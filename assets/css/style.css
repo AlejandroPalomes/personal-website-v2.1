@@ -3,10 +3,19 @@
     padding: 0;
     font-family: 'Source Sans Pro', sans-serif;
     color: #15241d;
+    text-decoration: none;
 }
 
 svg{
     fill: #15241d;
+    transition: 0.3s ease;
+}
+
+svg:hover{
+    transform: scale(1.15);
+}
+
+a{
 }
 
 
