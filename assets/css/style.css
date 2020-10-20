@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Source Sans Pro', sans-serif;
@@ -6,24 +6,63 @@
     text-decoration: none;
 }
 
-svg{
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(234, 232, 233);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(21, 36, 29);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* END SCROLLBAR */
+
+svg {
     fill: #15241d;
     transition: 0.3s ease;
 }
 
-svg:hover{
+svg:hover {
     transform: scale(1.15);
 }
 
-.main__header{
+h1 {
+    font-size: 50px;
+}
+
+h1 span:nth-of-type(1) {
+    font-weight: 400;
+}
+
+h1 span:nth-of-type(2) {
+    font-weight: 600;
+}
+
+h2 {
+    font-weight: 200;
+    font-size: 27px;
+}
+
+.main__header {
     background: #eae8e9;
 }
 
-.main__header__name{
+.main__header__name {
     position: relative;
+    width: 440px;
     margin-bottom: 70px;
 }
-.main__header__name::before, .main__header__name::after{
+
+.main__header__name::before,
+.main__header__name::after {
     content: '';
     display: block;
     position: absolute;
@@ -35,16 +74,17 @@ svg:hover{
     transform: rotate(-45deg);
 }
 
-.main__header__name::before{
+.main__header__name::before {
     top: -40px;
 }
-.main__header__name::after{
+
+.main__header__name::after {
     transform: rotate(135deg);
     bottom: -40px;
     right: 120px;
 }
 
-.main__heder__name__dash{
+.main__heder__name__dash {
     position: absolute;
     height: 60px;
     width: 80px;
@@ -52,7 +92,8 @@ svg:hover{
     right: 100px;
     overflow: hidden;
 }
-.main__heder__name__dash > div{
+
+.main__heder__name__dash>div {
     height: 90px;
     width: 5px;
     background: #15241d;
@@ -60,47 +101,32 @@ svg:hover{
     transform: rotate(18deg) translateY(-15px);
 }
 
-h1{
-    font-size: 50px;
-}
-h1 span:nth-of-type(1){
-    font-weight: 400;
-}
-h1 span:nth-of-type(2){
-    font-weight: 600;
-}
-
-h2{
-    font-weight: 200;
-    font-size: 27px;
-}
-
-.main__header__personal{
+.main__header__personal {
     padding-left: 120px;
     width: 40%;
 }
-.main__header__personal p{
+
+.main__header__personal p {
     font-weight: 200;
     width: 320px;
 }
 
-.main__header__image{
-    /* position: relative; */
+.main__header__image {
+    height: 100%;
     width: 60%;
-    overflow: hidden;
 }
-.main__header__image img{
-    /* position: absolute; */
+
+.main__header__image img {
     left: -100px;
     bottom: 0;
 }
 
-.project__container{
+.project__container {
     height: 350px;
     width: 80%;
 }
 
-.project__title{
+.project__title {
     position: absolute;
     width: 200px;
     height: 50px;
@@ -108,10 +134,39 @@ h2{
     transform: rotate(-90deg) translate(-75px, -75px);
 }
 
-.project__title span{
+.project__title span {
     color: white;
-    /* display: inline-block; */
     font-size: 25px;
     white-space: nowrap;
-    /* transform: rotate(-90deg) translate(-77px, -25px); */
+}
+
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
+
+@media (max-width: 992px) {
+    .main__header__personal{
+        padding-left: 0;
+        width: 430px;
+        text-align: center;
+    }
+
+    .main__header__name::after {
+        right: 0;
+    }
+
+    .main__heder__name__dash {
+        right: -20px;
+    }
+
+    .main__header__image {
+        height: 60%;
+    }
+}
+
+@media (max-width: 576px) {
+    .main__header__personal{
+        transform: scale(0.65);
+    }
 }
