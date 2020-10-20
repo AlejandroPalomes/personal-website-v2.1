@@ -157,14 +157,6 @@ h2 {
 }
 
 @media (max-width: 1200px) {
-    .main__header__links svg{
-        fill: white;
-    }
-
-    .main__header__links{
-        width: 150px;
-    }
-
     .project__title {
         position: relative;
         width: 200px;
@@ -188,6 +180,14 @@ h2 {
 }
 
 @media (max-width: 992px) {
+    .main__header__links svg{
+        fill: white;
+    }
+
+    .main__header__links{
+        width: 150px;
+    }
+
     .main__header__personal{
         padding-left: 0;
         width: 430px;
