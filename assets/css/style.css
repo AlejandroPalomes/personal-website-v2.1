@@ -24,6 +24,9 @@
     background: #555;
 }
 /* END SCROLLBAR */
+a{
+    color: rgb(21, 36, 29);
+}
 
 svg {
     fill: #15241d;
