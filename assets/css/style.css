@@ -208,6 +208,9 @@ h2 {
     .main__header__image {
         height: 60%;
     }
+    .safari {
+        height: 300%;
+    }
 }
 
 @media (max-width: 576px) {
