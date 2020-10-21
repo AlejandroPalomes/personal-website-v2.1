@@ -159,6 +159,10 @@ h2 {
     object-position: top;
 }
 
+.safari{
+    border: red;
+}
+
 @media (max-width: 1200px) {
     .project__title {
         position: relative;
