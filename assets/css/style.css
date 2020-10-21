@@ -159,10 +159,6 @@ h2 {
     object-position: top;
 }
 
-.safari{
-    border: 1px solid red;
-}
-
 @media (max-width: 1200px) {
     .project__title {
         position: relative;
@@ -211,9 +207,6 @@ h2 {
 
     .main__header__image {
         height: 60%;
-    }
-    .safari {
-        height: 300%;
     }
 }
 
