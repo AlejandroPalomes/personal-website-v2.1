@@ -160,7 +160,7 @@ h2 {
 }
 
 .safari{
-    border: red;
+    border: 1px solid red;
 }
 
 @media (max-width: 1200px) {
