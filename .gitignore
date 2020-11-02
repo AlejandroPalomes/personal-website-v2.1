@@ -4,7 +4,7 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
-/client
+/_client
 
 # Editor directories and files
 .idea
