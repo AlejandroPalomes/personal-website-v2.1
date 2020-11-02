@@ -7,10 +7,10 @@ function cssfy(){
     return (
         gulp
             .src('./src/css/styles.scss')
-            .pipe(sourcemap.init())
+            .pipe(sourcemaps.init())
             .pipe(sass().on('error', sass.logError))
             .pipe(sourcemaps.write('.'))
-            .pipe(gulp.dest('.src/css/'))
+            .pipe(gulp.dest('./src/css/'))
             .pipe(notify({message: 'Sass compiled!', onLast: true}))
     )
 }
