@@ -6,7 +6,7 @@
                     <div class="main__header__name">
                         <h1><span>Alejandro</span> <span>Palomes</span></h1>
                         <h2>Fullstack Web Developer</h2>
-                        <div class="main__heder__name__dash"><div></div></div>
+                        <div class="main__header__name__dash"><div></div></div>
                     </div>
                     <p class="d-none d-lg-inline-block mb-4">
                         After 5 years fully immersed in the design world as a filmmaker and motion designer, I decided to shift gears towards something more challenging to my persona.
@@ -85,21 +85,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
