@@ -34,7 +34,7 @@
                     </a>
                 </div>
         </div>
-        <img class="order-1 order-xl-3 mb-5 mb-xl-0 project__image" :src="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`" :alt="`${project.title} image`">
+        <img class="order-1 order-xl-3 mb-5 mb-xl-0 project__image" :src="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`" :alt="`${project.title} cover`">
     </div>
 </template>
 
