@@ -9,7 +9,7 @@
                     <span v-if="(index + 1) !== project.technologies.length"> | </span>
                     </span></span>
                 <div class="mx-auto mt-3">
-                    <a v-if="project.repo !== NULL " :href="project.repo" class="mr-2">
+                    <a v-if="project.repo" :href="project.repo" class="mr-2">
                         <svg height="25pt"  width="25pt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872
                                     c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464
@@ -22,7 +22,7 @@
                                     c0,6.88,4.608,14.88,17.6,12.352C438.72,472.145,512,375.857,512,262.353C512,120.401,397.376,5.329,255.968,5.329z"/>
                         </svg>
                     </a>
-                    <a v-if="project.preview !== NULL " :href="project.preview">
+                    <a v-if="project.preview" :href="project.preview">
                         <svg height="25pt"  width="25pt" viewBox="0 0 488.9 488.9" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M238.9,160.3c-42,2.6-76,36.7-78.6,78.6c-3.2,50.9,38.8,92.8,89.6,89.6c41.9-2.7,75.9-36.7,78.6-78.6
                                     C331.7,199,289.8,157.1,238.9,160.3z M289.8,247.3c-1.5,22.7-19.8,41-42.4,42.4c-27.4,1.7-50-20.8-48.2-48.2
