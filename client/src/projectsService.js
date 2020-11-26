@@ -6,7 +6,21 @@ class ProjectsService {
     static getProjects(){
         return new Promise ((resolve, reject) =>{
             try {
-                axios.get(url + 'all')
+                axios.post(url + 'all')
+                .then(res => {
+                    resolve(res.data);
+                });
+                // const data = res.data
+            } catch (err) {
+                reject(err);
+            }
+        })
+    }
+
+    static getProjectById(id){
+        return new Promise ((resolve, reject) =>{
+            try {
+                axios.post(url + id)
                 .then(res => {
                     resolve(res.data);
                 });

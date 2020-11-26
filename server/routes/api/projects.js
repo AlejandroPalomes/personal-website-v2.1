@@ -10,7 +10,8 @@ const projectsController = require('../../controllers/projectsController');
 
 const router = express.Router();
 
-router.get('/all', projectsController.projectsAll)
+// router.get('/all', (req, res) => res.send('dd'))
+router.post('/all', projectsController.projectsAll)
 router.get('/:id', projectsController.projectById)
 
 module.exports = router;
