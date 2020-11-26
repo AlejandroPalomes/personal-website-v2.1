@@ -15,7 +15,7 @@
                         <br><br>
                         I like to consider myself a tech guy who enjoys the most out of life having only a computer.
                     </p>
-                    <router-link to="/foo">Go to Foo</router-link>
+                    <router-link to="/project/1">Go to Foo</router-link>
                     <div class="d-none d-lg-block main__header__links">
                         <a href="https://www.linkedin.com/in/alejandropalomes/" class="mr-1">
                             <svg height="25pt"  width="25pt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">

@@ -16,7 +16,7 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 3000,
-    //historyApiFallback: true,
+    historyApiFallback: true,
     proxy: {
       "/api": "http://localhost:8000/",
     },
@@ -65,7 +65,7 @@ module.exports = {
       favicon: "./src/assets/img/favicon/favicon.png",
       filename: "index.html",
       template: "index.html",
-      inject: true,
+      inject: false, //prevent webpack to inject the assets into the html
     }),
     // new Dotenv({})
     // new webpack.DefinePlugin({
