@@ -11,9 +11,10 @@ const projectsController = require('../../controllers/projectsController');
 const router = express.Router();
 
 // router.get('/all', (req, res) => res.send('dd'))
+// router.get('/test', (req, res) => res.redirect('/demo2'))
 // router.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
-router.get('/pepe', (req, res) => res.sendFile(__dirname + "/public/index.html"));
+// router.get('/pepe', (req, res) => res.sendFile(__dirname + "/public/index.html"));
 router.post('/all', projectsController.projectsAll)
-router.get('/:id', projectsController.projectById)
+router.post('/:id', projectsController.projectById)
 
 module.exports = router;

@@ -27,6 +27,7 @@ const routes = [{
         {
             path: '/project/:id',
             component: projectDetail,
+            props: true
         },
         {
             path: '*',

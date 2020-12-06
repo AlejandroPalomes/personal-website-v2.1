@@ -1,6 +1,7 @@
 import axios from 'axios';
-// const url = 'http://localhost:8000/api/projects/'; //For development only
-const url = 'api/projects/';
+const url = 'http://localhost:8000/api/projects/'; //For development only
+// const url = 'http://www.alejandropalomes.com/api/projects/'; //For development only
+// const url = '/api/projects/';
 
 class ProjectsService {
     static getProjects(){
