@@ -9,6 +9,8 @@ const Project_Tech = db.define('project_tech', {
     tech_id: {
         type: Sequelize.INTEGER
     }
+},{
+    freezeTableName: true,
 })
 
 

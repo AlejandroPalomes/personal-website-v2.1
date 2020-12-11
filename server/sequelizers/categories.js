@@ -3,7 +3,7 @@ const db = require('../config/db-connect');
 const Projects = require('./projects');
 // const Project_Tech = require('./technologies');
 
-const Technologies = db.define('technologies', {
+const Categories = db.define('categories', {
     ID: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -15,13 +15,13 @@ const Technologies = db.define('technologies', {
     }
 })
 
-Projects.belongsToMany(Technologies, {
-    through: 'project_tech',
+Projects.belongsToMany(Categories, {
+    through: 'project_cat',
     foreignKey: 'project_id'
 });
-Technologies.belongsToMany(Projects, {
-    through: 'project_tech',
-    foreignKey: 'tech_id'
+Categories.belongsToMany(Projects, {
+    through: 'project_cat',
+    foreignKey: 'category_id'
 });
 
-module.exports = Technologies;
+module.exports = Categories;

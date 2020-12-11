@@ -37,6 +37,7 @@ const sequelize = new Sequelize(config().db.NAME, config().db.USER, config().db.
   define: {
     timestamps: false
   },
+  logging: false, //preven SQL Query to appear in the console
 });
 
 sequelize.authenticate()

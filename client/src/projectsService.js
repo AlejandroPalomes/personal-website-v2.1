@@ -7,7 +7,7 @@ class ProjectsService {
     static getProjects(){
         return new Promise ((resolve, reject) =>{
             try {
-                axios.post(url + 'all')
+                axios.get(url + 'all')
                 .then(res => {
                     resolve(res.data);
                 });
@@ -21,9 +21,9 @@ class ProjectsService {
     static getProjectById(id){
         return new Promise ((resolve, reject) =>{
             try {
-                axios.post(url + id)
+                axios.get(url + id)
                 .then(res => {
-                    resolve(res.data);
+                    res.status === 200 ? resolve(res.data) : reject(res.statusText);
                 });
                 // const data = res.data
             } catch (err) {

@@ -14,7 +14,7 @@ const router = express.Router();
 // router.get('/test', (req, res) => res.redirect('/demo2'))
 // router.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
 // router.get('/pepe', (req, res) => res.sendFile(__dirname + "/public/index.html"));
-router.post('/all', projectsController.projectsAll)
-router.post('/:id', projectsController.projectById)
+router.get('/all', projectsController.projectsAll)
+router.get('/:id', projectsController.projectById)
 
 module.exports = router;
