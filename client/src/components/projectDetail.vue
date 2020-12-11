@@ -1,8 +1,15 @@
 <template>
-<div>
-    <span>Hello</span>
-    <h3>{{id}}</h3>
-    <span>{{ project }}</span>
+<div class="h-100 border border-blue">
+    <div class="mx-5">
+        <h4>{{ project.title }}</h4>
+        <p>DESCRIPTION: {{ project.description }}</p>
+        <p>COLLAB: {{ project.collaborators }}</p>
+        <p>COMPLETED: {{ project.completion_date }}</p>
+        <p>REPO: {{ project.repo }}</p>
+        <p>PREVIEW: {{ project.preview }}</p>
+        <p>TECH: {{ project.technologies }}</p>
+        <p>CAT: {{ project.categories }}</p>
+    </div>
     <span v-if="error.length">{{ error }}</span>
 </div>
 </template>

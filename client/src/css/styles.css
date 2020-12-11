@@ -38,6 +38,23 @@ h2 {
 .main {
   min-height: 100vh; }
 
+.header {
+  height: 50px;
+  width: 100%;
+  padding: 0 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100; }
+  .header ul {
+    list-style: none;
+    margin: 0; }
+    .header ul li {
+      margin-left: 15px; }
+      .header ul li * {
+        transition: 0.2s ease; }
+        .header ul li *:hover {
+          color: #eae8e9;
+          text-decoration: none; }
+
 .main__header {
   background: #eae8e9; }
   .main__header__name {
