@@ -1,8 +1,10 @@
+@import 'src/vars';
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Source Sans Pro', sans-serif;
-    color: #15241d;
+    color: $black;
     text-decoration: none;
 }
 
@@ -25,7 +27,7 @@ a{
 }
 
 svg {
-    fill: #15241d;
+    fill: $black;
     transition: 0.3s ease;
     &:hover {
         transform: scale(1.075);
@@ -49,8 +51,12 @@ h2 {
     font-size: 27px;
 }
 
+.main{
+    min-height: 100vh;
+}
+
 .main__header {
-    background: #eae8e9;
+    background: $light-grey;
     &__name {
         position: relative;
         width: 440px;
@@ -64,7 +70,7 @@ h2 {
             width: 30px;
             border-style: solid;
             border-width: 5px 0 0 5px;
-            border-color: #15241d;
+            border-color: $black;
             transform: rotate(-45deg);
         }
         &::before {
@@ -86,7 +92,7 @@ h2 {
             div {
                 height: 90px;
                 width: 5px;
-                background: #15241d;
+                background: $black;
                 margin-left: 15px;
                 transform: rotate(18deg) translateY(-15px);
             }
@@ -125,7 +131,7 @@ h2 {
         position: absolute;
         width: 200px;
         height: 50px;
-        background: #15241d;
+        background: $black;
         transform: rotate(-90deg) translate(-75px, -75px);
         span {
             color: white;
@@ -142,12 +148,24 @@ h2 {
     }
 }
 
+.footer{
+    width: 100%;
+    height: 45px;
+    padding: 0 30px;
+    background: $black;
+    border-radius: 30px 30px 0 0;
+
+    span, div{
+        color: white;
+    }
+}
+
 @media (max-width: 1200px) {
     .project__title {
         position: relative;
         width: 200px;
         height: 50px;
-        background: #15241d;
+        background: $black;
         transform: rotate(0deg);
     }
 
