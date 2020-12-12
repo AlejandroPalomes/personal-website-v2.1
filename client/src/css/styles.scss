@@ -179,9 +179,8 @@ h2 {
     &__category{
         width: 310px;
         flex-shrink: 0;
-        border: 1px solid black;
+        user-select: none;
         &__name{
-            // box-sizing: border-box;
             padding: 0;
             font-size: 250px;
             font-weight: 700;
@@ -190,6 +189,9 @@ h2 {
             text-align: center;
             writing-mode: vertical-lr;
             transform: rotate(180deg);
+        }
+        a:hover{
+            text-decoration: none;
         }
     }
 }

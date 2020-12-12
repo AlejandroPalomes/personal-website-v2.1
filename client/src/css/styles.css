@@ -1,34 +1,34 @@
 .the-arrow {
   width: 32px;
   transition: all 0.2s; }
-  .the-arrow.-left {
-    top: 60%;
-    left: 0; }
-    .the-arrow.-left > .shaft {
-      width: 0;
-      background-color: #999; }
-      .the-arrow.-left > .shaft:before, .the-arrow.-left > .shaft:after {
-        width: 0;
-        background-color: #999; }
-      .the-arrow.-left > .shaft:before {
-        transform: rotate(0); }
-      .the-arrow.-left > .shaft:after {
-        transform: rotate(0); }
   .the-arrow.-right {
-    top: 3px; }
+    top: 60%;
+    right: 0; }
     .the-arrow.-right > .shaft {
+      width: 0;
+      background-color: #15241d; }
+      .the-arrow.-right > .shaft:before, .the-arrow.-right > .shaft:after {
+        width: 0;
+        background-color: #15241d; }
+      .the-arrow.-right > .shaft:before {
+        transform: rotate(0); }
+      .the-arrow.-right > .shaft:after {
+        transform: rotate(0); }
+  .the-arrow.-left {
+    top: 3px; }
+    .the-arrow.-left > .shaft {
       width: 32px;
       transition-delay: 0.2s; }
-      .the-arrow.-right > .shaft:before, .the-arrow.-right > .shaft:after {
+      .the-arrow.-left > .shaft:before, .the-arrow.-left > .shaft:after {
         width: 12px;
         transition-delay: 0.3s;
         transition: all 0.5s; }
-      .the-arrow.-right > .shaft:before {
+      .the-arrow.-left > .shaft:before {
         transform: rotate(40deg); }
-      .the-arrow.-right > .shaft:after {
+      .the-arrow.-left > .shaft:after {
         transform: rotate(-40deg); }
   .the-arrow > .shaft {
-    background-color: #999;
+    background-color: #15241d;
     display: block;
     height: 1px;
     position: relative;
@@ -36,19 +36,19 @@
     transition-delay: 0;
     will-change: transform; }
     .the-arrow > .shaft:before, .the-arrow > .shaft:after {
-      background-color: #999;
+      background-color: #15241d;
       content: '';
       display: block;
       height: 1px;
       position: absolute;
       top: 0;
-      right: 0;
+      left: 0;
       transition: all 0.2s;
       transition-delay: 0; }
     .the-arrow > .shaft:before {
-      transform-origin: top right; }
+      transform-origin: top left; }
     .the-arrow > .shaft:after {
-      transform-origin: bottom right; }
+      transform-origin: bottom left; }
 
 .animated-arrow {
   display: inline-block;
@@ -59,39 +59,41 @@
   position: relative;
   transition: all 0.2s; }
   .animated-arrow:hover {
-    color: #eaeaea; }
-    .animated-arrow:hover > .the-arrow.-left > .shaft {
+    color: #eaeaea;
+    cursor: pointer; }
+    .animated-arrow:hover > .the-arrow.-right > .shaft {
       width: 32px;
       transition-delay: 0.1s;
-      background-color: #eaeaea; }
-      .animated-arrow:hover > .the-arrow.-left > .shaft:before, .animated-arrow:hover > .the-arrow.-left > .shaft:after {
+      background-color: #15241d;
+      transform: translateX(-48px); }
+      .animated-arrow:hover > .the-arrow.-right > .shaft:before, .animated-arrow:hover > .the-arrow.-right > .shaft:after {
         width: 12px;
         transition-delay: 0.1s;
-        background-color: #eaeaea; }
-      .animated-arrow:hover > .the-arrow.-left > .shaft:before {
+        background-color: #15241d; }
+      .animated-arrow:hover > .the-arrow.-right > .shaft:before {
         transform: rotate(40deg); }
-      .animated-arrow:hover > .the-arrow.-left > .shaft:after {
+      .animated-arrow:hover > .the-arrow.-right > .shaft:after {
         transform: rotate(-40deg); }
     .animated-arrow:hover > .arrow__main {
-      transform: translateX(-16px); }
-      .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft {
+      transform: translateX(-48px); }
+      .animated-arrow:hover > .arrow__main > .the-arrow.-left > .shaft {
         width: 0;
         transform: translateX(200%);
         transition-delay: 0; }
-        .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:before, .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:after {
+        .animated-arrow:hover > .arrow__main > .the-arrow.-left > .shaft:before, .animated-arrow:hover > .arrow__main > .the-arrow.-left > .shaft:after {
           width: 0;
           transition-delay: 0;
           transition: all 0.1s; }
-        .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:before {
+        .animated-arrow:hover > .arrow__main > .the-arrow.-left > .shaft:before {
           transform: rotate(0); }
-        .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:after {
+        .animated-arrow:hover > .arrow__main > .the-arrow.-left > .shaft:after {
           transform: rotate(0); }
   .animated-arrow > .arrow__main {
     display: flex;
     align-items: center;
     transition: all 0.2s; }
     .animated-arrow > .arrow__main > .arrow__text {
-      margin: 0 16px 0 0;
+      margin: 0 16px 0 16px;
       line-height: 1; }
     .animated-arrow > .arrow__main > .the-arrow {
       position: relative; }
@@ -231,7 +233,7 @@ h2 {
 .project__category {
   width: 310px;
   flex-shrink: 0;
-  border: 1px solid black; }
+  user-select: none; }
   .project__category__name {
     padding: 0;
     font-size: 250px;
@@ -241,6 +243,8 @@ h2 {
     text-align: center;
     writing-mode: vertical-lr;
     transform: rotate(180deg); }
+  .project__category a:hover {
+    text-decoration: none; }
 
 .footer {
   width: 100%;

@@ -3,18 +3,17 @@
     <div class="project__category d-none d-xl-flex flex-column align-items-center">
         <div class="pt-5 sticky-top">
             <span class="project__category__name">{{project.categories[0]}}</span>
-            <div class="d-flex align-items-center justify-content-center animated-arrow">
-                <span class="the-arrow -left">
-                    <span class="shaft"></span>
-                </span>
+            <a @click="$router.go(-1)" class="d-flex align-items-center justify-content-center animated-arrow">
                 <span class="arrow__main">
-                    <span class="arrow__text">Back</span>
-                    <span class="the-arrow -right">
+                    <span class="the-arrow -left">
                         <span class="shaft"></span>
                     </span>
+                    <span class="arrow__text">Back</span>
                 </span>
-                <!-- <p>Back</p> -->
-            </div>
+                <span class="the-arrow -right">
+                    <span class="shaft"></span>
+                </span>
+            </a>
         </div>
     </div>
     <div class="project__information mx-5 pt-5">
