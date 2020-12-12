@@ -1,5 +1,5 @@
 <template>
-<div class="project mt-4 d-flex border border-danger">
+<div class="project d-flex border border-danger">
     <div class="project__category d-none d-xl-flex flex-column align-items-center">
         <div class="pt-5 sticky-top">
             <span class="project__category__name">{{project.categories[0]}}</span>
