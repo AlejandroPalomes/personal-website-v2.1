@@ -1,6 +1,39 @@
 <template>
-<div class="h-100 border border-blue">
-    <div class="mx-5">
+<div class="project mt-4 d-flex border border-danger">
+    <div class="project__category d-none d-xl-flex flex-column align-items-center">
+        <div class="pt-5 sticky-top">
+            <span class="project__category__name">{{project.categories[0]}}</span>
+            <div class="d-flex align-items-center justify-content-center animated-arrow">
+                <span class="the-arrow -left">
+                    <span class="shaft"></span>
+                </span>
+                <span class="arrow__main">
+                    <span class="arrow__text">Back</span>
+                    <span class="the-arrow -right">
+                        <span class="shaft"></span>
+                    </span>
+                </span>
+                <!-- <p>Back</p> -->
+            </div>
+        </div>
+    </div>
+    <div class="project__information mx-5 pt-5">
+        <h4>{{ project.title }}</h4>
+        <p>DESCRIPTION: {{ project.description }}</p>
+        <p>COLLAB: {{ project.collaborators }}</p>
+        <p>COMPLETED: {{ project.completion_date }}</p>
+        <p>REPO: {{ project.repo }}</p>
+        <p>PREVIEW: {{ project.preview }}</p>
+        <p>TECH: {{ project.technologies }}</p>
+        <p>CAT: {{ project.categories }}</p>
+        <h4>{{ project.title }}</h4>
+        <p>DESCRIPTION: {{ project.description }}</p>
+        <p>COLLAB: {{ project.collaborators }}</p>
+        <p>COMPLETED: {{ project.completion_date }}</p>
+        <p>REPO: {{ project.repo }}</p>
+        <p>PREVIEW: {{ project.preview }}</p>
+        <p>TECH: {{ project.technologies }}</p>
+        <p>CAT: {{ project.categories }}</p>
         <h4>{{ project.title }}</h4>
         <p>DESCRIPTION: {{ project.description }}</p>
         <p>COLLAB: {{ project.collaborators }}</p>

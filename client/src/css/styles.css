@@ -1,3 +1,101 @@
+.the-arrow {
+  width: 32px;
+  transition: all 0.2s; }
+  .the-arrow.-left {
+    top: 60%;
+    left: 0; }
+    .the-arrow.-left > .shaft {
+      width: 0;
+      background-color: #999; }
+      .the-arrow.-left > .shaft:before, .the-arrow.-left > .shaft:after {
+        width: 0;
+        background-color: #999; }
+      .the-arrow.-left > .shaft:before {
+        transform: rotate(0); }
+      .the-arrow.-left > .shaft:after {
+        transform: rotate(0); }
+  .the-arrow.-right {
+    top: 3px; }
+    .the-arrow.-right > .shaft {
+      width: 32px;
+      transition-delay: 0.2s; }
+      .the-arrow.-right > .shaft:before, .the-arrow.-right > .shaft:after {
+        width: 12px;
+        transition-delay: 0.3s;
+        transition: all 0.5s; }
+      .the-arrow.-right > .shaft:before {
+        transform: rotate(40deg); }
+      .the-arrow.-right > .shaft:after {
+        transform: rotate(-40deg); }
+  .the-arrow > .shaft {
+    background-color: #999;
+    display: block;
+    height: 1px;
+    position: relative;
+    transition: all 0.2s;
+    transition-delay: 0;
+    will-change: transform; }
+    .the-arrow > .shaft:before, .the-arrow > .shaft:after {
+      background-color: #999;
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: all 0.2s;
+      transition-delay: 0; }
+    .the-arrow > .shaft:before {
+      transform-origin: top right; }
+    .the-arrow > .shaft:after {
+      transform-origin: bottom right; }
+
+.animated-arrow {
+  display: inline-block;
+  color: #999;
+  font-size: 1.25em;
+  font-style: italic;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s; }
+  .animated-arrow:hover {
+    color: #eaeaea; }
+    .animated-arrow:hover > .the-arrow.-left > .shaft {
+      width: 32px;
+      transition-delay: 0.1s;
+      background-color: #eaeaea; }
+      .animated-arrow:hover > .the-arrow.-left > .shaft:before, .animated-arrow:hover > .the-arrow.-left > .shaft:after {
+        width: 12px;
+        transition-delay: 0.1s;
+        background-color: #eaeaea; }
+      .animated-arrow:hover > .the-arrow.-left > .shaft:before {
+        transform: rotate(40deg); }
+      .animated-arrow:hover > .the-arrow.-left > .shaft:after {
+        transform: rotate(-40deg); }
+    .animated-arrow:hover > .arrow__main {
+      transform: translateX(-16px); }
+      .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft {
+        width: 0;
+        transform: translateX(200%);
+        transition-delay: 0; }
+        .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:before, .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:after {
+          width: 0;
+          transition-delay: 0;
+          transition: all 0.1s; }
+        .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:before {
+          transform: rotate(0); }
+        .animated-arrow:hover > .arrow__main > .the-arrow.-right > .shaft:after {
+          transform: rotate(0); }
+  .animated-arrow > .arrow__main {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s; }
+    .animated-arrow > .arrow__main > .arrow__text {
+      margin: 0 16px 0 0;
+      line-height: 1; }
+    .animated-arrow > .arrow__main > .the-arrow {
+      position: relative; }
+
 * {
   margin: 0;
   padding: 0;
@@ -43,7 +141,8 @@ h2 {
   width: 100%;
   padding: 0 30px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 100; }
+  font-weight: 100;
+  background: white; }
   .header ul {
     list-style: none;
     margin: 0; }
@@ -129,6 +228,20 @@ h2 {
   object-fit: contain;
   object-position: top; }
 
+.project__category {
+  width: 310px;
+  flex-shrink: 0;
+  border: 1px solid black; }
+  .project__category__name {
+    padding: 0;
+    font-size: 250px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 310px;
+    text-align: center;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg); }
+
 .footer {
   width: 100%;
   height: 45px;
@@ -137,6 +250,13 @@ h2 {
   border-radius: 30px 30px 0 0; }
   .footer span, .footer div {
     color: white; }
+
+@media (min-width: 1401px) {
+  .project__category {
+    width: 360px; }
+    .project__category span:nth-of-type(1) {
+      font-size: 350px;
+      line-height: 360px; } }
 
 @media (max-width: 1200px) {
   .project__title {
