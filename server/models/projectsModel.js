@@ -32,7 +32,7 @@ module.exports = {
     getProjectById(id){
         return new Promise ((resolve, reject) =>{
             Projects.findAll({
-                attributes: ['title', 'description', 'collaborators', 'completion_date', 'repo', 'preview'],
+                attributes: ['ID', 'title', 'description', 'collaborators', 'completion_date', 'repo', 'preview'],
                 include: [
                     {
                         model: Technologies,

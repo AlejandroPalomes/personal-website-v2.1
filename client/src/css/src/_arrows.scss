@@ -113,7 +113,7 @@
                 // width: 0;
                 transition-delay: 0.1s;
                 background-color: $black;
-                transform: translateX(-$shaft-width -$text-arrow-space);
+                transform: translateX(-$shaft-width -$text-arrow-space +10px);
 
                 &:before,
                 &:after {
@@ -136,7 +136,7 @@
         }
 
         >.arrow__main {
-            transform: translateX(-$shaft-width -$text-arrow-space);
+            transform: translateX(-$shaft-width -$text-arrow-space +10px);
 
             >.the-arrow.-left {
                 >.shaft {
