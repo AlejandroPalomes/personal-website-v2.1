@@ -19,19 +19,25 @@
     </div>
     <div class="project__information mx-5 pt-5 flex-grow-1">
         <div class="mx-auto project__information__container">
-            <!-- <div> -->
             <img class="mb-5 project__information__image" :src="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`" :alt="`${project.title} cover`">
-            <!-- </div> -->
             <!-- <CarouselComponent v-bind:imagesArray="[]"/> -->
-            <h4 class="mt-5 mb-4 project__information__title">{{ project.title }}</h4>
+            <div class="mt-5 mb-4 project__information__title">
+                <h4 class="project__information__title--title">{{ project.title }}</h4>
+                <span class="project__information__title--date">{{ project.completion_date }}</span>
+            </div>
             <div class="project__information__body">
-                <p>{{ project.description }}</p>
-                <!-- <p>COLLAB: {{ project.collaborators }}</p> -->
-                <p>COMPLETED: {{ project.completion_date }}</p>
+                <!-- <p>{{ project.description }}</p> -->
+                <p>Bacon ipsum dolor amet bacon pork chop alcatra burgdoggen frankfurter. Prosciutto tail shankle buffalo salami short loin turkey landjaeger fatback sirloin ground round tongue. Boudin pork venison bresaola cupim pig, capicola prosciutto ham. Hamburger landjaeger strip steak picanha shankle. Buffalo ribeye cupim, meatloaf flank cow t-bone pork beef tail jerky hamburger sirloin. Kevin strip steak drumstick pork loin doner kielbasa. Meatball hamburger short ribs, ribeye ground round biltong bacon shankle.
+
+Salami rump kielbasa beef ribs cupim. Fatback corned beef sirloin ground round pork belly, rump shankle. Pancetta shank beef ribs, rump pork chop pork belly corned beef salami frankfurter. Alcatra cupim pig corned beef sausage ground round sirloin, drumstick doner spare ribs shank frankfurter tri-tip pork salami. Ham pork loin bacon, spare ribs kevin landjaeger meatball pastrami shank salami jerky filet mignon. Ball tip doner jerky short loin drumstick. Cow pastrami turducken brisket andouille strip steak frankfurter porchetta kevin sausage buffalo.</p>
+                <p v-if="project.collaborators">COLLAB: {{ project.collaborators }}</p>
                 <p>REPO: {{ project.repo }}</p>
                 <p>PREVIEW: {{ project.preview }}</p>
-                <p class="project__information__body--tech">TECH: {{ project.technologies }}</p>
-                <p>CAT: {{ project.categories }}</p>
+                <p class="project__information__body--tech">
+                    <span v-bind:key="project.ID + '-' + tech +'-Tech'" v-for="(tech, index) in project.technologies" >{{tech}}
+                        <span v-if="(index + 1) !== project.technologies.length"> | </span>
+                    </span>
+                </p>
             </div>
         </div>
     </div>

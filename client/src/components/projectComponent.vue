@@ -7,7 +7,7 @@
             <span class="d-block">{{project.description}}<br><br>
                 <span v-bind:key="project.ID + '-' + tech.name+'-Tech'" v-for="(tech, index) in project.technologies" >{{tech.name}}
                     <span v-if="(index + 1) !== project.technologies.length"> | </span>
-                    </span></span>
+                </span></span>
                 <div class="mx-auto mt-3">
                     <a v-if="project.repo" :href="project.repo" class="mr-2">
                         <svg height="25pt"  width="25pt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">

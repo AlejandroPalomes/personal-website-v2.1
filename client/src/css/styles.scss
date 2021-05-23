@@ -222,16 +222,24 @@ h2 {
             object-position: top;
         }
         &__title{
-            text-transform: uppercase;
-            font-weight: 900;
-            font-size: 40px;
+            &--title{
+                text-transform: uppercase;
+                font-weight: 900;
+                font-size: 40px;
+                line-height: 30px;
+            }
+            &--date{
+                font-size: 21px;
+                font-weight: 100;
+                color: $gray;
+            }
         }
         &__body{
             font-weight: 100;
             font-size: 19px;
-            &--tech{
-                
-            }
+            // &--tech{
+
+            // }
         }
     }
 }
@@ -265,7 +273,14 @@ h2 {
                 max-width: 1020px;
             }
             &__title{
-                font-size: 50px;
+                &--title{
+                    font-size: 50px;
+                    line-height: 30px;
+                }
+                &--date{
+                    font-size: 28px;
+                    color: $gray;
+                }
             }
             &__body{
                 font-size: 24px;

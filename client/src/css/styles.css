@@ -264,10 +264,16 @@ h2 {
   object-fit: contain;
   object-position: top; }
 
-.project__information__title {
+.project__information__title--title {
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 40px; }
+  font-size: 40px;
+  line-height: 30px; }
+
+.project__information__title--date {
+  font-size: 21px;
+  font-weight: 100;
+  color: #999; }
 
 .project__information__body {
   font-weight: 100;
@@ -292,8 +298,12 @@ h2 {
       font-size: 26px; }
   .project__information__container {
     max-width: 1020px; }
-  .project__information__title {
-    font-size: 50px; }
+  .project__information__title--title {
+    font-size: 50px;
+    line-height: 30px; }
+  .project__information__title--date {
+    font-size: 28px;
+    color: #999; }
   .project__information__body {
     font-size: 24px; } }
 
