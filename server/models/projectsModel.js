@@ -7,7 +7,7 @@ const Technologies = require('../sequelizers/technologies');
 
 module.exports = {
     getAllProjects(){
-        return new Promise ((resolve, reject) =>{
+        return new Promise ((resolve, reject) => {
             Projects.findAll({
                 attributes: ['ID', 'title', 'description', 'repo', 'preview'],
                 include: [{
@@ -30,7 +30,7 @@ module.exports = {
         })
     },
     getProjectById(id){
-        return new Promise ((resolve, reject) =>{
+        return new Promise ((resolve, reject) => {
             Projects.findAll({
                 attributes: ['ID', 'title', 'description', 'collaborators', 'completion_date', 'repo', 'preview'],
                 include: [

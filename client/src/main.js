@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './css/styles.css';
 
 Vue.config.productionTip = false;
+Vue.config.devtools = true;
 Vue.use(Router);
 
 let router = new Router({
