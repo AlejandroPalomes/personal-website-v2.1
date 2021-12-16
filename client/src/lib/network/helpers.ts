@@ -5,10 +5,10 @@ import { UnauthorizedError } from './errors/UnauthorizedError';
 import { BadRequestError } from './errors/BadRequestError';
 import { UnexpectedError } from './errors/UnexpectedError';
 
-type ParserFunction = (json) => object;
+type ParserFunction = (json: any) => object;
 const noParser: ParserFunction = json => json;
-const parse = (parser) => json => parser(json);
-const toJSON = response => {
+const parse = (parser: any) => (json: any) => parser(json);
+const toJSON = (response: any) => {
   try {
     if (response.status === 204) {
       return;
@@ -20,30 +20,31 @@ const toJSON = response => {
   }
 };
 
-export const doGet = async <T>(url: string, parser?, body?: object): Promise<T> =>
+export const doGet = async <T>(url: string, parser?: any, body?: object): Promise<T> =>
   doRequest<T>(url, 'GET', body, parser);
 
-export const doPost = async <T>(url: string, body: object = {}, parser?): Promise<T> =>
+export const doPost = async <T>(url: string, body: object = {}, parser?: any): Promise<T> =>
   doRequest<T>(url, 'POST', body, parser);
 
-export const doPatch = async <T>(url: string, body: object = {}, parser?): Promise<T> =>
+export const doPatch = async <T>(url: string, body: object = {}, parser?: any): Promise<T> =>
   doRequest<T>(url, 'PATCH', body, parser);
 
-export const doPut = async <T>(url: string, body: object = {}, parser?): Promise<T> =>
+export const doPut = async <T>(url: string, body: object = {}, parser?: any): Promise<T> =>
   doRequest<T>(url, 'PUT', body, parser);
 
-export const doDelete = async <T>(url: string, parser?): Promise<T> =>
+export const doDelete = async <T>(url: string, parser?: any): Promise<T> =>
   doRequest<T>(url, 'DELETE', parser);
 
-export const doPutFileUpload = async <T>(url: string, body: FormData, parser?): Promise<T> =>
+export const doPutFileUpload = async <T>(url: string, body: FormData, parser?: any): Promise<T> =>
   doRequestUpload<T>(url, 'PUT', body, parser);
 
-export const doPostFileUpload = async <T>(url: string, body: FormData, parser?): Promise<T> =>
+export const doPostFileUpload = async <T>(url: string, body: FormData, parser?: any): Promise<T> =>
   doRequestUpload<T>(url, 'POST', body, parser);
 
-const getBodyFromResponse = async (response) => {
+const getBodyFromResponse = async (response: AxiosResponse) => {
   try {
-    return await response.json();
+    //TODO Really need this await?
+    return await response.data;
   } catch (e) {
     return 'No body';
   }
@@ -126,8 +127,8 @@ const doRequestUpload = async <T>(endpoint: string,
 
 export const mainFetcher = doRequest;
 
-export const isAClientError = (error) =>
-  error.code === 400;
+// export const isAClientError = (error) =>
+//   error.code === 400;
 
-export const isUnauthorizedError = (error) =>
-  error.code === 401;
+// export const isUnauthorizedError = (error) =>
+//   error.code === 401;

@@ -39,6 +39,12 @@ module.exports = {
           { loader: 'css-loader', options: { sourceMap: true } },
         ],
       },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/
+        // options: { appendTsSuffixTo: [/\.vue$/] }
+      },
       // {
       //   test: /\.css$/,
       //   use: ["style-loader", "css-loader"],

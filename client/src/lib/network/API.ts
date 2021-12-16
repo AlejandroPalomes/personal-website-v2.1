@@ -1,14 +1,14 @@
 import { doGet } from './helpers';
 
 export const API = {
-    projects: {
-        getAll: () =>
-            //TODO add models and types
-            doGet<any[]>('/projects/all'),
-        getById: (id: string) => 
-            //TODO add models and types
-            doGet<any>(`/projects/${id}`)
-    },
+  projects: {
+    getAll: () =>
+      //TODO add models and types
+      doGet<any[]>('/projects/all'),
+    getById: (id: string) =>
+      //TODO add models and types
+      doGet<any>(`/projects/${id}`)
+  },
     //TODO Remove the following, just for reference now
     // tenants: {
     //     assingTenantToUnit: (tenantId: ModelId) => (unit: Partial<Unit>) =>
