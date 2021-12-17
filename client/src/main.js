@@ -1,10 +1,10 @@
-import Vue, { createApp } from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/styles.css';
 
-// Vue.config.productionTip = false;
+// AppConfig.productionTip = false;
 
 // // new Vue({
 // //   render: h => h(App),
@@ -21,9 +21,9 @@ import './css/styles.css';
 const Counter = {
   data() {
     return {
-      counter: 0
+      counter: '0'
     }
   }
 }
 
-Vue.createApp(Counter).mount('#app')
+createApp(Counter).mount('#app')
