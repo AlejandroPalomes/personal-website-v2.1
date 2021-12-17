@@ -13,12 +13,17 @@ module.exports = {
     path: __dirname + "../../server/public/",
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
     compress: true,
     port: 3000,
     proxy: {
       "/api": "http://localhost:8000/",
     },
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
@@ -30,6 +35,10 @@ module.exports = {
         exclude: /(node_modules)/,
         test: /\.js$/,
         use: "babel-loader",
+        exclude: file => (
+          /node_modules/.test(file) &&
+          !/\.vue\.js/.test(file)
+        )
 			},
 			{
         test: /\.css$/i,
