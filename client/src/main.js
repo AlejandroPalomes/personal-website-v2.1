@@ -4,8 +4,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/styles.css';
 
-const app = createApp({
-  render: h => h(App),
-});
+const app = createApp(App);
 
 app.mount('#app');

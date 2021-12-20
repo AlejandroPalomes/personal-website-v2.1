@@ -23,7 +23,8 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    // extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.js'],
   },
   module: {
     rules: [
@@ -75,11 +76,11 @@ module.exports = {
       template: "index.html",
       inject: true,
     }),
-    // new Dotenv({})
-    // new webpack.DefinePlugin({
-    // 	'process.env': {
-    // 		'APIURL': JSON.stringify(process.env.APIURL)
-    // 	}
-    // })
+    new Dotenv({}),
+    new webpack.DefinePlugin({
+    	'process.env': {
+    		'APIURL': JSON.stringify(process.env.APIURL)
+    	}
+    })
 	],
 };
