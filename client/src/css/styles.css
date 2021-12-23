@@ -148,4 +148,34 @@ h2 {
   .profile__description__mobile p {
     font-size: 17px; } }
 
+.mr-1 {
+  margin-right: 4px; }
+
+.mr-2 {
+  margin-right: 8px; }
+
+.mr-3 {
+  margin-right: 12px; }
+
+.mr-4 {
+  margin-right: 16px; }
+
+.mr-5 {
+  margin-right: 20px; }
+
+.pl-1 {
+  padding-left: 4px; }
+
+.pl-2 {
+  padding-left: 8px; }
+
+.pl-3 {
+  padding-left: 12px; }
+
+.pl-4 {
+  padding-left: 16px; }
+
+.pl-5 {
+  padding-left: 20px; }
+
 /*# sourceMappingURL=styles.css.map */
