@@ -4,35 +4,36 @@ import Dashboard from '../components/mainComponent.vue'
 import Router from 'vue-router';
 // import jwt_decode from "jwt-decode";
 
-const routes = [{
-            path: '/',
-            name: 'Dashboard',
-            component: Dashboard,
-            // meta: {
-            //     requiresAuth: false,
-            // },
-        },
-        // {
-        //     path: '/login',
-        //     name: 'Login',
-        //     component: Login,
-        //     meta: {
-        //         guest: true,
-        //     },
-        // },
-        {
-            path: '/project/lala',
-            component: projectDetail,
-        },
-        {
-            path: '/project/:id',
-            component: projectDetail,
-        },
-        {
-            path: '*',
-            component: notFound,
-        },
-    ];
+const routes = [
+  {
+    path: '/',
+    name: 'Dashboard',
+    component: Dashboard,
+    // meta: {
+    //     requiresAuth: false,
+    // },
+  },
+  // {
+  //     path: '/login',
+  //     name: 'Login',
+  //     component: Login,
+  //     meta: {
+  //         guest: true,
+  //     },
+  // },
+  {
+    path: '/project/lala',
+    component: projectDetail,
+  },
+  {
+    path: '/project/:id',
+    component: projectDetail,
+  },
+  {
+    path: '*',
+    component: notFound,
+  },
+];
 /*
 router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.requiresAuth)) {
