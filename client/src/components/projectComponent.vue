@@ -3,14 +3,14 @@
     <div class="order-1 order-xl-1 project__title mb-4 mb-xl-0 d-flex align-items-center justify-content-center">
         <span>{{project.title}}</span>
     </div>
-    <div class="order-3 order-xl-2 project__description pl-0 pl-xl-5 mx-0 mx-xl-5">
+    <div class="order-3 order-xl-2 project__description ps-0 ps-xl-5 mx-0 mx-xl-5">
         <span class="d-block">{{project.description}}<br><br>
             <span v-bind:key="project.ID + '-' + tech.name+'-Tech'" v-for="(tech, index) in project.technologies" >{{tech.name}}
               <span v-if="(index + 1) !== project.technologies.length"> | </span>
             </span>
         </span>
         <div class="mx-auto mt-3">
-          <a v-if="project.repo" :href="project.repo" class="mr-2">
+          <a v-if="project.repo" :href="project.repo" class="me-2">
             <svg height="25pt"  width="25pt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
               <path d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872
               c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464
