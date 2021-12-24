@@ -1,10 +1,10 @@
 import notFound from '../components/notFound.vue';
 import projectDetail from '../components/projectDetail.vue';
 import Dashboard from '../components/mainComponent.vue'
-import Router from 'vue-router';
+// import Router from 'vue-router';
 // import jwt_decode from "jwt-decode";
 
-const routes = [{
+export const routes = [{
             path: '/',
             name: 'Dashboard',
             component: Dashboard,
@@ -29,7 +29,7 @@ const routes = [{
             component: projectDetail,
         },
         {
-            path: '*',
+            path: "/:catchAll(.*)",
             component: notFound,
         },
     ];
@@ -92,4 +92,4 @@ router.beforeEach((to, from, next) => {
     }
 });
 */
-export default routes;
+// export default routes;
