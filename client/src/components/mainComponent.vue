@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import ProjectsService from '../projectsService';
+import { API } from '../lib/network/API'
 import projectComponent from './projectComponent.vue'
 import mobileBioComponent from './mobileBioComponent.vue'
 
@@ -73,16 +73,16 @@ export default {
       screenWidth: 0,
     }
   },
-  created(){
+  async created(){
     this.screenWidth = window.innerWidth;
     try {
-      ProjectsService.getProjects().then(e => this.projects = e)
+      API.projects.getAll().then(APIProjects => this.projects = APIProjects);
     } catch (err) {
       this.error = err.message;
     }
   },
   mounted(){
-    window.addEventListener('resize', ()=> this.screenWidth = window.innerWidth);
+    window.addEventListener('resize', () => this.screenWidth = window.innerWidth);
   }
 }
 </script>

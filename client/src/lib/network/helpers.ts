@@ -8,12 +8,13 @@ import { UnexpectedError } from './errors/UnexpectedError';
 type ParserFunction = (json: any) => object;
 const noParser: ParserFunction = json => json;
 const parse = (parser: any) => (json: any) => parser(json);
-const toJSON = (response: any) => {
+const extractData = (response: any) => {
   try {
     if (response.status === 204) {
       return;
     }
-    return response.json();
+
+    return response.data;
   } catch (e) {
     console.error(e);
     return {};
@@ -70,7 +71,8 @@ export const handleErrors = async (response: AxiosResponse) => {
   return response;
 };
 
-const doRequest = async <T>(endpoint: string,
+const doRequest = async <T>(
+  endpoint: string,
   method: Method,
   body?: object,
   parser = noParser): Promise<T> => {
@@ -94,7 +96,7 @@ const doRequest = async <T>(endpoint: string,
   return new Promise((resolve, reject) => {
     axios(url, request)
     .then(handleErrors)
-    .then(toJSON)
+    .then(extractData)
     .then(parse(parser))
     .then(resolve)
     .catch(err => reject(err));
@@ -118,7 +120,7 @@ const doRequestUpload = async <T>(endpoint: string,
   return new Promise((resolve, reject) => {
     axios(url, request)
       .then(handleErrors)
-      .then(toJSON)
+      .then(extractData)
       .then(parse(parser))
       .then(resolve)
       .catch(err => reject(err));

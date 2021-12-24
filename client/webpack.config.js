@@ -25,7 +25,8 @@ module.exports = {
   },
   resolve: {
     // extensions: ['.tsx', '.ts', '.js'],
-    extensions: ['.js'],
+    extensions: ['.ts', '.js'],
+    // extensions: ['.js'],
   },
   module: {
     rules: [
@@ -42,18 +43,20 @@ module.exports = {
           !/\.vue\.js/.test(file)
         )
 			},
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        // options: {
+        //   appendTsSuffixTo: [/\.vue$/]
+        // },
+        exclude: /node_modules/,
+      },
 			{
         test: /\.css$/i,
         use: [
           'style-loader',
           { loader: 'css-loader', options: { sourceMap: true } },
         ],
-      },
-      {
-        test: /\.ts$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/
-        // options: { appendTsSuffixTo: [/\.vue$/] }
       },
       // {
       //   test: /\.css$/,
