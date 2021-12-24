@@ -81,7 +81,8 @@ h2 {
     width: 60%; }
     .main__header__image img {
       left: -100px;
-      bottom: 0; }
+      bottom: 0;
+      height: 90%; }
 
 .profile__description__mobile {
   background: #15241d; }
