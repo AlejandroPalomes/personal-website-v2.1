@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="main__header__image d-flex align-items-end justify-content-center">
-                <img height="90%" src="https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604400894/other/px5y0d.png" alt="Profile picture">
+                <img src="https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604400894/other/px5y0d.png" alt="Profile picture">
             </div>
         </div>
         <mobileBioComponent v-if="screenWidth < 992" />
