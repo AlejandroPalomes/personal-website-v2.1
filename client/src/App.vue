@@ -10,16 +10,15 @@
 </template>
 
 <script>
-import mainComponent from './components/mainComponent.vue';
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue';
 
 export default {
   name: 'App',
   components: {
-    mainComponent,
     Footer,
     Header
   }
 }
+
 </script>
