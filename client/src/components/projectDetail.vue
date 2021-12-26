@@ -4,7 +4,7 @@
         <div class="pt-5 sticky-top">
             <!-- <span class="project__category__name">{{project.categories[0]}}</span> -->
             <span class="project__category__name">dev</span>
-            <a @click="$router.go(-1)" class="d-flex align-items-center justify-content-center animated-arrow">
+            <a @click="$router.push(Routes.PROJECTS.path)" class="d-flex align-items-center justify-content-center animated-arrow">
                 <span class="arrow__main">
                     <span class="the-arrow -left">
                         <span class="shaft"></span>
@@ -46,27 +46,27 @@ Salami rump kielbasa beef ribs cupim. Fatback corned beef sirloin ground round p
 </template>
 
 <script>
-// import ProjectsService from '../projectsService';
 import { API } from '../lib/network/API';
 import config from '../lib/Config.ts'
+import { Routes } from '../router/routes/Routes'
 // import CarouselComponent from './CarouselComponent.vue'
 
 export default {
     name: 'ProjectDetail',
-    props: ['id'],
+    props: ['projectId'],
     components: {
         // CarouselComponent,
     },
     data(){
         return {
         project: {},
-        error: ''
+        error: '',
+        Routes
         }
     },
     created() {
         try {
-            API.projects.getById(this.id).then(e => this.project = e);
-            // ProjectsService.getProjectById(this.id).then(e => this.project = e)
+            API.projects.getById(this.projectId).then(APIProject => this.project = APIProject);
         } catch (err) {
             this.error = err.message;
         }
