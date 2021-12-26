@@ -42,18 +42,17 @@ export const doPutFileUpload = async <T>(url: string, body: FormData, parser?: a
 export const doPostFileUpload = async <T>(url: string, body: FormData, parser?: any): Promise<T> =>
   doRequestUpload<T>(url, 'POST', body, parser);
 
-const getBodyFromResponse = async (response: AxiosResponse) => {
+const getBodyFromResponse = (response: AxiosResponse) => {
   try {
-    //TODO Really need this await?
-    return await response.data;
+    return response.data;
   } catch (e) {
     return 'No body';
   }
 };
 
-export const handleErrors = async (response: AxiosResponse) => {
+export const handleErrors = (response: AxiosResponse) => {
   if (response.statusText !== 'OK') {
-    const body = await getBodyFromResponse(response);
+    const body = getBodyFromResponse(response);
     if (response.status >= 500) {
       throw UnexpectedError.from('Server error', body);
     }
