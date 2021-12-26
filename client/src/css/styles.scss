@@ -1,3 +1,17 @@
 @import 'src/vars';
+@import 'src/colors';
 @import 'src/arrows';
-@import './dashboard.styles';
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: $BLACK;
+  text-decoration: none;
+}
+
+@import './src/components/dashboard.styles';
+@import './src/components/projectDetail.styles';
+
+@import './src/common/header.styles';
+@import './src/common/footer.styles';

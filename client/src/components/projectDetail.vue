@@ -46,8 +46,8 @@ Salami rump kielbasa beef ribs cupim. Fatback corned beef sirloin ground round p
 </template>
 
 <script>
-import ProjectsService from '../projectsService';
-// import { API } from '../lib/network/API';
+// import ProjectsService from '../projectsService';
+import { API } from '../lib/network/API';
 import config from '../lib/Config.ts'
 // import CarouselComponent from './CarouselComponent.vue'
 
@@ -65,8 +65,8 @@ export default {
     },
     created() {
         try {
-            // API.projects.getById(this.id).then(e => this.project = e);
-            ProjectsService.getProjectById(this.id).then(e => this.project = e)
+            API.projects.getById(this.id).then(e => this.project = e);
+            // ProjectsService.getProjectById(this.id).then(e => this.project = e)
         } catch (err) {
             this.error = err.message;
         }
