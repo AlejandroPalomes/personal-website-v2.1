@@ -41,7 +41,7 @@
 
 <script>
     export default {
-        name: 'projectContainer',
+        name: 'ProjectCard',
         props: ['project'],
     }
 </script>

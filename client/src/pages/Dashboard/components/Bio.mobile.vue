@@ -37,6 +37,6 @@
 
 <script>
     export default {
-        name: 'projectContainer',
+        name: 'BioMobile',
     }
 </script>

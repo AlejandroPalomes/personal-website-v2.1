@@ -1,9 +1,9 @@
-import notFound from '../components/notFound.vue';
-import projectDetail from '../components/projectDetail.vue';
-import About from '../components/About/About.page.vue'
-import Contact from '../components/Contact/Contact.page.vue'
-import Dashboard from '../components/mainComponent.vue'
-import Projects from '../components/Projects.vue'
+import NotFound from '../pages/NotFound/NotFound.page.vue';
+import ProjectDetail from '../pages/Projects/ProjectsDetail.page.vue';
+import About from '../pages/About/About.page.vue'
+import Contact from '../pages/Contact/Contact.page.vue'
+import Dashboard from '../pages/Dashboard/Dashboard.page.vue'
+import Projects from '../pages/Projects/Projects.page.vue'
 import { Routes } from './routes/Routes'
 
 export const WebsiteRoutes = [
@@ -29,11 +29,11 @@ export const WebsiteRoutes = [
   },
   {
     path: Routes.PROJECTS_DETAIL.path,
-    component: projectDetail,
+    component: ProjectDetail,
     props: true
   },
   {
     path: "/:catchAll(.*)",
-    component: notFound,
+    component: NotFound,
   },
 ];

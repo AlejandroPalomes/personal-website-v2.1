@@ -46,25 +46,25 @@
                 <img src="https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604400894/other/px5y0d.png" alt="Profile picture">
             </div>
         </div>
-        <mobileBioComponent v-if="screenWidth < 992" />
+        <BioMobile v-if="screenWidth < 992" />
         <div class="projects__general__container py-5 d-flex flex-column align-items-center">
-              <projectComponent v-bind:key="'project' + project.ID" v-for="project in projects" v-bind:project='project'/>
+              <ProjectCard v-bind:key="'project' + project.ID" v-for="project in projects" v-bind:project='project'/>
         </div>
     </div>
 </template>
 
 <script>
-import { API } from '../lib/network/API';
-import projectComponent from './projectComponent.vue';
-import mobileBioComponent from './mobileBioComponent.vue';
-import { Routes } from '../router/routes/Routes';
+import { API } from '../../lib/network/API';
+import ProjectCard from './components/ProjectCard.vue';
+import BioMobile from './components/Bio.mobile.vue';
+import { Routes } from '../../router/routes/Routes';
 // import { defineComponent } from 'vue'
 
 export default {
   name: 'Dashboard',
   components: {
-    projectComponent,
-    mobileBioComponent
+    ProjectCard,
+    BioMobile
   },
   data(){
     return {
