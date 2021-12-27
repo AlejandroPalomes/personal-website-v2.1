@@ -59,9 +59,10 @@ import { API } from '../lib/network/API';
 import projectComponent from './projectComponent.vue';
 import mobileBioComponent from './mobileBioComponent.vue';
 import { Routes } from '../router/routes/Routes';
+// import { defineComponent } from 'vue'
 
 export default {
-  name: 'ProjectsComponent',
+  name: 'Dashboard',
   components: {
     projectComponent,
     mobileBioComponent

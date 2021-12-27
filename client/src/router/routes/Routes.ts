@@ -1,6 +1,8 @@
 import { BaseRoute } from "./types";
 
 const RoutesIdentifiers = <const>[
+  'ABOUT',
+  'CONTACT',
   'DASHBOARD',
   'PROJECTS',
   'PROJECTS_DETAIL'
@@ -12,6 +14,12 @@ type RouteDefinition = {
 }
 
 export const Routes: RouteDefinition = {
+  ABOUT: {
+    path: '/about'
+  },
+  CONTACT: {
+    path: '/contact'
+  },
   DASHBOARD: {
     path: '/'
   },

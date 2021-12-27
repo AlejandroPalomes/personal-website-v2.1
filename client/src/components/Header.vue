@@ -1,11 +1,11 @@
 <template>
   <div class="header position-fixed d-flex justify-content-between align-items-center">
-    <!-- <span>ALEJANDRO PALOMES</span> -->
-    <router-link to="/">ALEJANDRO PALOMES</router-link>
+    <router-link :to="Routes.DASHBOARD.path" class="link">ALEJANDRO PALOMES</router-link>
     <ul class="d-flex">
-      <li><router-link :to="Routes.PROJECTS.path">PORTFOLIO</router-link></li>
-      <li><router-link to="/about">ABOUT ME</router-link></li>
-      <li><router-link to="/contact">CONTACT</router-link></li>
+      <li><router-link :to="Routes.DASHBOARD.path" class="link">DASHBOARD</router-link></li>
+      <li><router-link :to="Routes.PROJECTS.path" class="link">PORTFOLIO</router-link></li>
+      <li><router-link :to="Routes.ABOUT.path" class="link">ABOUT ME</router-link></li>
+      <li><router-link :to="Routes.CONTACT.path" class="link">CONTACT</router-link></li>
     </ul>
   </div>
 </template>
