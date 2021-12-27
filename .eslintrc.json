@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "@cowcoders/eslint-config/vue",
+    "plugin:cypress/recommended"
+  ],
+  "overrides": [
+    {
+      "files":[
+        "src/lib/i18n/translations/*.ts"
+      ],
+      "rules": {
+        "quotes": "off",
+        "indent": "off",
+        "comma-dangle": "off",
+        "key-spacing": "off",
+        "import/no-anonymous-default-export": "off",
+        "sort-keys": "error"
+      }
+    }
+  ]
+}

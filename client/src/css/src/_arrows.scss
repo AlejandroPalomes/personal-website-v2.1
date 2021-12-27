@@ -12,13 +12,13 @@
         >.shaft {
             width: 0;
             // width: $shaft-width;
-            background-color: $black;
+            background-color: $BLACK;
 
             &:before,
             &:after {
                 width: 0;
                 // width: $arrow-head-width;
-                background-color: $black;
+                background-color: $BLACK;
             }
 
             &:before {
@@ -61,7 +61,7 @@
     }
 
     >.shaft {
-        background-color: $black;
+        background-color: $BLACK;
         display: block;
         height: $shaft-thickness;
         position: relative;
@@ -71,7 +71,7 @@
 
         &:before,
         &:after {
-            background-color: $black;
+            background-color: $BLACK;
             content: '';
             display: block;
             height: $arrow-head-thickness;
@@ -96,7 +96,7 @@
 
 .animated-arrow {
     display: inline-block;
-    color: $gray;
+    color: $GRAY;
     font-size: 1.25em;
     font-style: italic;
     text-decoration: none;
@@ -104,7 +104,7 @@
     transition: all 0.2s;
 
     &:hover {
-        color: $white;
+        color: $WHITE;
         cursor: pointer;
 
         >.the-arrow.-right {
@@ -112,7 +112,7 @@
                 width: $shaft-width;
                 // width: 0;
                 transition-delay: 0.1s;
-                background-color: $black;
+                background-color: $BLACK;
                 transform: translateX(-$shaft-width -$text-arrow-space +10px);
 
                 &:before,
@@ -120,7 +120,7 @@
                     width: $arrow-head-width;
                     // width: 0;
                     transition-delay: 0.1s;
-                    background-color: $black;
+                    background-color: $BLACK;
                 }
 
                 &:before {
@@ -197,13 +197,13 @@
 //         >.shaft {
 //             // width: 0;
 //             width: $shaft-width;
-//             background-color: $black;
+//             background-color: $BLACK;
 
 //             &:before,
 //             &:after {
 //                 // width: 0;
 //                 width: $arrow-head-width;
-//                 background-color: $black;
+//                 background-color: $BLACK;
 //             }
 
 //             &:before {
@@ -246,7 +246,7 @@
 //     }
 
 //     >.shaft {
-//         background-color: $black;
+//         background-color: $BLACK;
 //         display: block;
 //         height: $shaft-thickness;
 //         position: relative;
@@ -256,7 +256,7 @@
 
 //         &:before,
 //         &:after {
-//             background-color: $black;
+//             background-color: $BLACK;
 //             content: '';
 //             display: block;
 //             height: $arrow-head-thickness;
@@ -281,7 +281,7 @@
 
 // .animated-arrow {
 //     display: inline-block;
-//     color: $gray;
+//     color: $GRAY;
 //     font-size: 1.25em;
 //     font-style: italic;
 //     text-decoration: none;
@@ -289,7 +289,7 @@
 //     transition: all 0.2s;
 
 //     &:hover {
-//         color: $white;
+//         color: $WHITE;
 //         cursor: pointer;
 
 //         >.the-arrow.-left {
@@ -297,14 +297,14 @@
 //                 // width: $shaft-width;
 //                 width: 0;
 //                 transition-delay: 0.1s;
-//                 background-color: $black;
+//                 background-color: $BLACK;
 
 //                 &:before,
 //                 &:after {
 //                     // width: $arrow-head-width;
 //                     width: 0;
 //                     transition-delay: 0.1s;
-//                     background-color: $black;
+//                     background-color: $BLACK;
 //                 }
 
 //                 &:before {

@@ -25,7 +25,8 @@ module.exports = {
   },
   resolve: {
     // extensions: ['.tsx', '.ts', '.js'],
-    extensions: ['.js'],
+    extensions: ['.ts', '.js'],
+    // extensions: ['.js'],
   },
   module: {
     rules: [
@@ -42,6 +43,14 @@ module.exports = {
           !/\.vue\.js/.test(file)
         )
 			},
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        // options: {
+        //   appendTsSuffixTo: [/\.vue$/]
+        // },
+        exclude: /node_modules/,
+      },
 			{
         test: /\.css$/i,
         use: [

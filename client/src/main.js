@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
-import { routes } from './routes/routes.js';
+import { WebsiteRoutes } from './router/WebsiteRoutes';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/styles.css';
@@ -14,7 +14,7 @@ import './css/styles.css';
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes: WebsiteRoutes
 });
 
 const app = createApp(App);

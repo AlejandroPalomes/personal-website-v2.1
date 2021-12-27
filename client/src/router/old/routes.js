@@ -4,6 +4,7 @@ import Dashboard from '../components/mainComponent.vue'
 // import Router from 'vue-router';
 // import jwt_decode from "jwt-decode";
 
+/** @deprecated use WebsiteRoutes instead */
 export const routes = [{
             path: '/',
             name: 'Dashboard',

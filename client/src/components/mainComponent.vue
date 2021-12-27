@@ -15,7 +15,6 @@
                         <br><br>
                         I like to consider myself a tech guy who enjoys the most out of life having only a computer.
                     </p>
-                    <router-link to="/project/1">Go to Foo</router-link>
                     <div class="d-none d-lg-block main__header__links">
                         <a href="https://www.linkedin.com/in/alejandropalomes/" class="me-1">
                             <svg height="25pt"  width="25pt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -55,12 +54,14 @@
 </template>
 
 <script>
-import ProjectsService from '../projectsService';
-import projectComponent from './projectComponent.vue'
-import mobileBioComponent from './mobileBioComponent.vue'
+import { API } from '../lib/network/API';
+import projectComponent from './projectComponent.vue';
+import mobileBioComponent from './mobileBioComponent.vue';
+import { Routes } from '../router/routes/Routes';
+// import { defineComponent } from 'vue'
 
 export default {
-  name: 'ProjectsComponent',
+  name: 'Dashboard',
   components: {
     projectComponent,
     mobileBioComponent
@@ -71,18 +72,19 @@ export default {
       error: '',
       tags: '',
       screenWidth: 0,
+      Routes
     }
   },
-  created(){
+  async created(){
     this.screenWidth = window.innerWidth;
     try {
-      ProjectsService.getProjects().then(e => this.projects = e)
+      API.projects.getAll().then(APIProjects => this.projects = APIProjects);
     } catch (err) {
       this.error = err.message;
     }
   },
   mounted(){
-    window.addEventListener('resize', ()=> this.screenWidth = window.innerWidth);
+    window.addEventListener('resize', () => this.screenWidth = window.innerWidth);
   }
 }
 </script>
