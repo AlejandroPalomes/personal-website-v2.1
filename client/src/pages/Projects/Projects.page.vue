@@ -5,7 +5,7 @@
       v-bind:key="category.name"
       v-for="(category) in categories"
       :active="false"
-      @click="$router.push(Routes.PROJECTS.withParams(category.name))"
+      @click="$router.push(Routes.PROJECTS.withParams(category.ID))"
     >
       {{category.name}}
     </Button>
@@ -44,9 +44,6 @@ export default {
         } catch (err) {
           this.error = err.message;
         }
-    },
-    mounted() {
-      console.log(this.$route);
     }
 }
 </script>

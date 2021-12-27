@@ -5,7 +5,7 @@
         v-for="(project) in projects"
         v-bind:project='project'
         :title="project.title"
-        :body="this.category"
+        :body="project.categories[0].name"
         :image="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`"
         @click="$router.push(Routes.PROJECTS_DETAIL.to(project.ID))"
       />
@@ -21,27 +21,32 @@ import { Routes } from '../../../router/routes/Routes';
 // import CarouselComponent from './CarouselComponent.vue'
 
 export default {
-    name: 'ProjectsContent',
-    components: {
-        Card,
-        Button
-    },
-    props: ['category', 'technologies'],
-    data(){
-        return {
-        projects: [],
-        categories: [],
-        error: '',
-        selectedCategory: this.$route.query.category,
-        Routes
-        }
-    },
-    created() {
-        try {
-            API.projects.getAll().then(APIProjects => this.projects = APIProjects).then(e => console.log(e));
-        } catch (err) {
-          this.error = err.message;
-        }
+  name: 'ProjectsContent',
+  components: {
+    Card,
+    Button
+  },
+  props: ['category', 'technologies'],
+  data(){
+    return {
+    projects: [],
+    categories: [],
+    error: '',
+    updateProjects: () => this.category
+        ? API.projects.getFiltered(`category=${this.category}`).then(APIProjects => this.projects = APIProjects)
+        : API.projects.getAll().then(APIProjects => this.projects = APIProjects),
+    Routes
+    }
+  },
+  created() {
+    try {
+      this.updateProjects();
+    } catch (err) {
+      this.error = err.message;
+    }
+  },
+  renderTriggered() {
+      this.updateProjects();
     }
 }
 </script>

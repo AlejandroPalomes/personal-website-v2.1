@@ -10,14 +10,46 @@ module.exports = {
         return new Promise ((resolve, reject) => {
             Projects.findAll({
                 attributes: ['ID', 'title', 'description', 'repo', 'preview'],
-                include: [{
+                include: [
+                  {
                     model: Technologies,
                     attributes: ['name']
-                }],
+                  },
+                  {
+                    model: Categories,
+                    attributes: ['name']
+                  }
+                ],
                 // include: [{
                 //     model: Images,
                 //     attributes: ['name']
                 // }],
+                where:{
+                    show: 1
+                }
+            })
+                .then(proj=>resolve(proj))
+                .catch(err => {
+                    console.log(err);
+                    reject(err);
+                })
+        })
+    },
+    getProjectsFiltered(category, technologies){
+        return new Promise ((resolve, reject) => {
+            Projects.findAll({
+                attributes: ['ID', 'title', 'description', 'repo', 'preview'],
+                include: [
+                  {
+                    model: Technologies,
+                    attributes: ['name']
+                  },
+                  {
+                    model: Categories,
+                    attributes: ['name'],
+                    where: { ID: category }
+                  }
+                ],
                 where:{
                     show: 1
                 }

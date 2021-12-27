@@ -9,18 +9,7 @@ module.exports = {
   getAllCategories(){
     return new Promise ((resolve, reject) => {
       Categories.findAll({
-        attributes: ['ID', 'name'],
-        // include: [{
-        //   model: Technologies,
-        //   attributes: ['name']
-        // }],
-        // include: [{
-        //     model: Images,
-        //     attributes: ['name']
-        // }],
-        // where:{
-        //     show: 1
-        // }
+        attributes: ['ID', 'name']
       })
       .then(proj => resolve(proj))
       .catch(err => {

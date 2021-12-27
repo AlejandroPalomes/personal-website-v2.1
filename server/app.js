@@ -14,7 +14,6 @@ app.use(history({
   }));
 app.use(parser.json());
 app.use(cors());
-
 app.use('/api/projects', projects);
 app.use('/api/categories', categories);
 

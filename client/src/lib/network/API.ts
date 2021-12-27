@@ -5,6 +5,9 @@ export const API = {
     getAll: () =>
       //TODO add models and types
       doGet<any[]>('/projects/all'),
+    getFiltered: (filters) =>
+      //TODO add models and types
+      doGet<any[]>(`/projects/filter?${filters}`),
     getById: (id: string) =>
       //TODO add models and types
       doGet<any>(`/projects/${id}`)
