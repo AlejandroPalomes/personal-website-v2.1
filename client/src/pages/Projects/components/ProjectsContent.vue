@@ -14,11 +14,9 @@
 
 <script>
 import { API } from '../../../lib/network/API';
-import config from '../../../lib/Config.ts';
 import Button from '../../../components/button/Button.vue';
 import Card from '../../../components/card/Card.vue';
 import { Routes } from '../../../router/routes/Routes';
-// import CarouselComponent from './CarouselComponent.vue'
 
 export default {
   name: 'ProjectsContent',
