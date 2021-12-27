@@ -316,6 +316,9 @@ h2 {
   font-weight: 100;
   font-size: 19px; }
 
+.card:hover {
+  cursor: pointer; }
+
 .header {
   height: 50px;
   width: 100%;
