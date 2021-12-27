@@ -1,13 +1,16 @@
 <template>
 <div>
-  <Card
-    v-bind:key="project.title"
-    v-for="(project) in projects"
-    v-bind:project='project'
-    :title="project.title"
-    :image="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`"
-    @click="$router.push(Routes.PROJECTS_DETAIL.to(project.ID))"
-  />
+  <div class="projects__filters"/>
+  <div class="projects__container">
+    <Card
+      v-bind:key="project.title"
+      v-for="(project) in projects"
+      v-bind:project='project'
+      :title="project.title"
+      :image="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`"
+      @click="$router.push(Routes.PROJECTS_DETAIL.to(project.ID))"
+    />
+  </div>
 </div>
 </template>
 

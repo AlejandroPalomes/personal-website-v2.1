@@ -316,8 +316,28 @@ h2 {
   font-weight: 100;
   font-size: 19px; }
 
-.card:hover {
-  cursor: pointer; }
+.projects__filters {
+  height: 80px;
+  overflow: hidden; }
+
+.projects__container {
+  display: flex;
+  max-width: 100vw;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 48px 92px;
+  overflow: hidden; }
+
+.card {
+  filter: drop-shadow(4px 4px 24px rgba(0, 0, 0, 0.12));
+  transition: 0.5s;
+  border: none; }
+  .card-title {
+    font-weight: 600; }
+  .card:hover {
+    cursor: pointer;
+    transform: scale(1.03); }
 
 .header {
   height: 50px;

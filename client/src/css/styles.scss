@@ -1,5 +1,6 @@
 @import 'src/vars';
 @import 'src/colors';
+@import 'src/shadows';
 @import 'src/arrows';
 
 * {
@@ -12,8 +13,9 @@
 
 @import './src/components/dashboard.styles';
 @import './src/components/projectDetail.styles';
-@import './src/components/card.styles';
+@import './src/pages/projects.styles';
 
+@import './src/components/card.styles';
 @import './src/common/header.styles';
 @import './src/common/footer.styles';
 

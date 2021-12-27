@@ -1,5 +1,16 @@
 .card {
+  filter: $SHADOW_1;
+
+  &-title {
+    font-weight: 600;
+  }
+
   &:hover {
     cursor: pointer;
+    transform: scale(1.03);
   }
+
+  transition: 0.5s;
+
+  border: none;
 }
