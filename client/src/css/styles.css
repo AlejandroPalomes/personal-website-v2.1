@@ -105,6 +105,27 @@
   color: #222222;
   text-decoration: none; }
 
+.button__primary {
+  padding: 4px 12px;
+  border-radius: 8px;
+  background-color: #E5DC00;
+  font-weight: 300;
+  border: none;
+  box-shadow: 4px 4px 0px #222222;
+  transition: 0.3s; }
+  .button__primary:hover {
+    cursor: pointer;
+    box-shadow: 6px 6px 0px #222222;
+    transform: translate(-2px, -2px); }
+  .button__primary:active {
+    box-shadow: 0px 0px 0px #222222;
+    transform: translate(4px, 4px);
+    transition: 0.1s; }
+  .button__primary__active {
+    border: 1px solid #E5DC00;
+    background-color: white;
+    box-shadow: 0 0 0; }
+
 ::-webkit-scrollbar {
   width: 7px; }
   ::-webkit-scrollbar-track {
@@ -318,7 +339,8 @@ h2 {
 
 .projects__filters {
   height: 80px;
-  overflow: hidden; }
+  overflow: hidden;
+  gap: 96px; }
 
 .projects__container {
   display: flex;

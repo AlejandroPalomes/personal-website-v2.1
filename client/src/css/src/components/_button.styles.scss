@@ -1,0 +1,30 @@
+.button {
+  &__primary {
+    padding: 4px 12px;
+    border-radius: 8px;
+    background-color: $YELLOW;
+    font-weight: 300;
+    border: none;
+    box-shadow: 4px 4px 0px $BLACK;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 6px 6px 0px $BLACK;
+      transform: translate(-2px, -2px);
+    }
+
+    &:active {
+      box-shadow: 0px 0px 0px $BLACK;
+      transform: translate(4px, 4px);
+      transition: 0.1s;
+    }
+
+    &__active {
+      border: 1px solid $YELLOW;
+      background-color: white;
+      box-shadow: 0 0 0;
+    }
+
+    transition: 0.3s;
+  }
+}
