@@ -29,15 +29,15 @@ export default {
     data(){
         return {
         projects: [],
+        categories: [],
         error: '',
         Routes
         }
     },
     created() {
         try {
-            // API.projects.getById(this.id).then(APIProject => this.project = APIProject);
+            API.categories.getAll().then(APICategories => this.categories = APICategories).then(e => console.log(e))
             API.projects.getAll().then(APIProjects => this.projects = APIProjects).then(e => console.log(e))
-            console.log(this.projects);
         } catch (err) {
             this.error = err.message;
         }

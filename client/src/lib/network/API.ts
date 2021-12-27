@@ -9,6 +9,10 @@ export const API = {
       //TODO add models and types
       doGet<any>(`/projects/${id}`)
   },
+  categories: {
+    getAll: () =>
+      doGet<any[]>('/categories/all')
+  }
     //TODO Remove the following, just for reference now
     // tenants: {
     //     assingTenantToUnit: (tenantId: ModelId) => (unit: Partial<Unit>) =>
