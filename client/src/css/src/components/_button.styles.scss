@@ -9,8 +9,8 @@
 
     &:hover {
       cursor: pointer;
-      box-shadow: 6px 6px 0px $BLACK;
-      transform: translate(-2px, -2px);
+      box-shadow: 3px 3px 0px $BLACK;
+      transform: translate(1px, 1px);
     }
 
     &:active {
@@ -20,9 +20,14 @@
     }
 
     &__active {
-      border: 1px solid $YELLOW;
-      background-color: white;
       box-shadow: 0 0 0;
+      transform: translate(2px, 2px);
+
+      &:hover {
+        cursor: pointer;
+        transform: translate(0, 0);
+        box-shadow: 2px 2px 0px $BLACK;
+      }
     }
 
     transition: 0.3s;

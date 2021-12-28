@@ -5,6 +5,7 @@ const con = require('./config/db-connect.js');
 // import {config} from './config/app-config.js';
 const projects = require('./routes/api/projects');
 const categories = require('./routes/api/categories');
+const technologies = require('./routes/api/technologies');
 const history = require('connect-history-api-fallback');
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(parser.json());
 app.use(cors());
 app.use('/api/projects', projects);
 app.use('/api/categories', categories);
+app.use('/api/technologies', technologies);
 
 app.use(express.static(__dirname + "/public/"));
 //Handdle Production

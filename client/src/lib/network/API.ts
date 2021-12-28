@@ -15,6 +15,10 @@ export const API = {
   categories: {
     getAll: () =>
       doGet<any[]>('/categories/all')
+  },
+  technologies: {
+    getAll: () =>
+      doGet<any[]>('/technologies/all')
   }
     //TODO Remove the following, just for reference now
     // tenants: {
