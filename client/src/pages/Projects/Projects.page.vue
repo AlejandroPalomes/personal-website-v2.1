@@ -11,22 +11,13 @@
         {{category.name}}
       </Button>
     </div>
-    <div class="dropdown">
-      <input
-        v-if="selectedCategory === 1"
-        class="dropdown-toggle projects__filters__technologies"
-        placeholder="Add a technology"
-        id="dropdownMenuLink"
-        data-bs-toggle="dropdown"
-        @keyup="onChangeTechInput"
-      />
-      <ul v-show="Boolean(filteredTechnologies.length)" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li
-          v-bind:key="tech.name"
-          v-for="(tech) in filteredTechnologies"
-        ><span class="dropdown-item">{{tech.name}}</span></li>
-      </ul>
-    </div>
+    <Searcher
+      v-if="selectedCategory === 1"
+      placeholder="Add a technology"
+      :onInputChange="onChangeTechInput"
+      :options="filteredTechnologies"
+      :onSelect="onSelectTech"
+    />
   </div>
   <Content :category="selectedCategory"/>
 </div>
@@ -37,6 +28,7 @@ import { API } from '../../lib/network/API';
 import Button from '../../components/button/Button.vue';
 import Card from '../../components/card/Card.vue';
 import Content from './components/ProjectsContent.vue';
+import Searcher from '../../components/searcher/Searcher.vue';
 import { Routes } from '../../router/routes/Routes';
 
 export default {
@@ -44,7 +36,8 @@ export default {
   components: {
     Card,
     Button,
-    Content
+    Content,
+    Searcher
   },
   props: ['category'],
   data(){
@@ -53,14 +46,18 @@ export default {
       technologies: [],
       filteredTechnologies: [],
       selectedCategory: Number(this.$route.query.category),
+      selectedTechnologies: this.$route.query.technologies?.split(',').map(Number) || [],
       error: '',
       Routes
     }
   },
   created() {
     try {
-      API.categories.getAll().then(APICategories => this.categories = APICategories).then(e => console.log(e));
-      API.technologies.getAll().then(APITechnologies => this.technologies = APITechnologies).then(e => this.filteredTechnologies = e);
+      API.categories.getAll()
+        .then(APICategories => this.categories = APICategories);
+      API.technologies.getAll()
+        .then(APITechnologies => this.technologies = APITechnologies)
+        .then(APITechnologies => this.filteredTechnologies = APITechnologies.filter(tech => !this.selectedTechnologies.includes(tech.ID)));
     } catch (err) {
       this.error = err.message;
     }
@@ -73,8 +70,13 @@ export default {
       this.selectedCategory = isNewCategory ? categoryId : undefined;
     },
     onChangeTechInput: function ({ target }) {
-      this.filteredTechnologies = this.technologies.filter(tech => tech.name.toLowerCase().includes(target.value))
-      console.log(this.filteredTechnologies.length);
+      this.filteredTechnologies = this.technologies.filter(tech => tech.name.toLowerCase().includes(target.value) && !this.selectedTechnologies.includes(tech.ID))
+    },
+    onSelectTech: function(technology) {
+      this.selectedTechnologies.push(technology.ID);
+      this.filteredTechnologies = this.filteredTechnologies.filter(tech => tech.ID !== technology.ID)
+      const path = Routes.PROJECTS.withParams(this.selectedCategory, this.selectedTechnologies);
+      this.$router.push(path);
     }
   }
 }

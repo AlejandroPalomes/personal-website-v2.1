@@ -71,7 +71,7 @@ export const Routes: RouteDefinition = {
       if (!category && !techs) return '/projects';
       let queryParams = '/projects?';
       if(category) queryParams += `category=${category}`;
-      if(techs) queryParams += `&filter=${techs.join(',')}`;
+      if(techs) queryParams += `&technologies=${techs.join(',')}`;
       return queryParams;
     }
   },
