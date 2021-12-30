@@ -5,6 +5,7 @@ module.exports = {
         projectsModel.getAllProjects().then(proj => res.send(proj))
     },
     projectsFiltered(req, res, next) {
+        console.log(req.query);
         const { category, technologies } = req.query;
         projectsModel.getProjectsFiltered(category, technologies).then(proj => res.send(proj))
     },

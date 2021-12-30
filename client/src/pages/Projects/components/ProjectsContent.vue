@@ -27,13 +27,9 @@ export default {
   props: ['category', 'technologies'],
   data(){
     return {
-    projects: [],
-    categories: [],
-    error: '',
-    updateProjects: () => this.category
-        ? API.projects.getFiltered(`category=${this.category}`).then(APIProjects => this.projects = APIProjects)
-        : API.projects.getAll().then(APIProjects => this.projects = APIProjects),
-    Routes
+      projects: [],
+      error: '',
+      Routes
     }
   },
   created() {
@@ -43,8 +39,29 @@ export default {
       this.error = err.message;
     }
   },
-  renderTriggered() {
+  watch: {
+    category: function() {
+      this.updateProjects();
+    },
+    technologies: function() {
+      console.log('tech updated');
       this.updateProjects();
     }
+  },
+  methods: {
+    updateProjects: function() {
+      console.log('render')
+      if (this.category) {
+        let params = `category=${this.category}`;
+        if (this.technologies.length) {
+          params += `&technologies=${this.technologies.join(',')}`;
+        }
+        API.projects.getFiltered(params).then(APIProjects => this.projects = APIProjects)
+      }
+      else {
+        API.projects.getAll().then(APIProjects => this.projects = APIProjects)
+      }
+    }
+  }
 }
 </script>

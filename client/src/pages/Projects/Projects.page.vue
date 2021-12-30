@@ -19,7 +19,7 @@
       :onSelect="onSelectTech"
     />
   </div>
-  <Content :category="selectedCategory"/>
+  <Content :category="selectedCategory" :technologies="selectedTechnologies"/>
 </div>
 </template>
 
@@ -62,6 +62,9 @@ export default {
       this.error = err.message;
     }
   },
+  renderTriggered() {
+    console.log('rendered parent');
+  },
   methods: {
     onChangeCategory: function (categoryId) {
       const isNewCategory = categoryId !== this.selectedCategory;
@@ -73,7 +76,7 @@ export default {
       this.filteredTechnologies = this.technologies.filter(tech => tech.name.toLowerCase().includes(target.value) && !this.selectedTechnologies.includes(tech.ID))
     },
     onSelectTech: function(technology) {
-      this.selectedTechnologies.push(technology.ID);
+      this.selectedTechnologies = [...this.selectedTechnologies, technology.ID];
       this.filteredTechnologies = this.filteredTechnologies.filter(tech => tech.ID !== technology.ID)
       const path = Routes.PROJECTS.withParams(this.selectedCategory, this.selectedTechnologies);
       this.$router.push(path);
