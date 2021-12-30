@@ -50,13 +50,12 @@ export default {
   },
   methods: {
     updateProjects: function() {
-      console.log('render')
       if (this.category) {
         let params = `category=${this.category}`;
         if (this.technologies.length) {
           params += `&technologies=${this.technologies.join(',')}`;
         }
-        API.projects.getFiltered(params).then(APIProjects => this.projects = APIProjects)
+        API.projects.getFiltered(params).then(APIProjects => { console.log(APIProjects); this.projects = APIProjects; })
       }
       else {
         API.projects.getAll().then(APIProjects => this.projects = APIProjects)
