@@ -5,7 +5,7 @@
         v-for="(project) in projects"
         v-bind:project='project'
         :title="project.title"
-        :body="project.categories[0].name"
+        body="TEST"
         :image="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`"
         @click="$router.push(Routes.PROJECTS_DETAIL.to(project.ID))"
       />
@@ -17,7 +17,7 @@ import { API } from '../../../lib/network/API';
 import Button from '../../../components/button/Button.vue';
 import Card from '../../../components/card/Card.vue';
 import { Routes } from '../../../router/routes/Routes';
-
+// project.categories[0].name
 export default {
   name: 'ProjectsContent',
   components: {
@@ -55,9 +55,10 @@ export default {
         if (this.technologies.length) {
           params += `&technologies=${this.technologies.join(',')}`;
         }
-        API.projects.getFiltered(params).then(APIProjects => { console.log(APIProjects); this.projects = APIProjects; })
+        API.projects.getFiltered(params).then(APIProjects => { console.log('API Projetcs: ', APIProjects); this.projects = APIProjects; })
       }
       else {
+        console.log('get all');
         API.projects.getAll().then(APIProjects => this.projects = APIProjects)
       }
     }
