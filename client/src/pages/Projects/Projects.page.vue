@@ -18,8 +18,16 @@
       :options="filteredTechnologies"
       :onSelect="onSelectTech"
     />
+    <span
+      v-for="(technology) in selectedTechnologies"
+      v-bind:key='technology.ID'
+      class="projects__filters__technology"
+      @click="onRemoveTech(technology.ID)"
+      >
+        {{technology.name}}
+      </span>
   </div>
-  <Content :category="selectedCategory" :technologies="selectedTechnologies"/>
+  <ProjectsContent :category="selectedCategory" :technologies="selectedTechnologies"/>
 </div>
 </template>
 
@@ -27,7 +35,7 @@
 import { API } from '../../lib/network/API';
 import Button from '../../components/button/Button.vue';
 import Card from '../../components/card/Card.vue';
-import Content from './components/ProjectsContent.vue';
+import ProjectsContent from './components/ProjectsContent.vue';
 import Searcher from '../../components/searcher/Searcher.vue';
 import { Routes } from '../../router/routes/Routes';
 
@@ -36,7 +44,7 @@ export default {
   components: {
     Card,
     Button,
-    Content,
+    ProjectsContent,
     Searcher
   },
   props: ['category'],
@@ -46,9 +54,16 @@ export default {
       technologies: [],
       filteredTechnologies: [],
       selectedCategory: Number(this.$route.query.category),
-      selectedTechnologies: this.$route.query.technologies?.split(',').map(Number) || [],
+      selectedTechnologies: [],
       error: '',
       Routes
+    }
+  },
+  watch: {
+    technologies(newData, oldData) {
+      if (newData.length) {
+        this.selectedTechnologies = this.getTechnologiesFromURL();
+      }
     }
   },
   created() {
@@ -66,6 +81,17 @@ export default {
     console.log('rendered parent');
   },
   methods: {
+    getTechnologiesFromURL: function () {
+      const technologiesIds = this.$route.query.technologies?.split(',').map(Number) || [];
+      if (this.technologies) {
+        return this.technologies?.filter(technology => technologiesIds?.includes(technology.ID));
+      }
+      return [];
+    },
+    getTechnologiesIds: function () {
+      // return [];
+      return this.selectedTechnologies?.map(item => item.ID);
+    },
     onChangeCategory: function (categoryId) {
       const isNewCategory = categoryId !== this.selectedCategory;
       const path = !isNewCategory ? Routes.PROJECTS.path : Routes.PROJECTS.withParams(categoryId);
@@ -76,8 +102,15 @@ export default {
       this.filteredTechnologies = this.technologies.filter(tech => tech.name.toLowerCase().includes(target.value) && !this.selectedTechnologies.includes(tech.ID))
     },
     onSelectTech: function(technology) {
-      this.selectedTechnologies = [...this.selectedTechnologies, technology.ID];
+      this.selectedTechnologies = [...this.selectedTechnologies, technology];
       this.filteredTechnologies = this.filteredTechnologies.filter(tech => tech.ID !== technology.ID)
+      const ids = getTechnologiesIds();
+      const path = Routes.PROJECTS.withParams(this.selectedCategory, ids);
+      this.$router.push(path);
+    },
+    onRemoveTech: function(removingId) {
+      this.selectedTechnologies = this.selectedTechnologies.filter(technologyId => technologyId !== removingId);
+      // this.filteredTechnologies = this.filteredTechnologies.filter(tech => tech.ID !== technology.ID)
       const path = Routes.PROJECTS.withParams(this.selectedCategory, this.selectedTechnologies);
       this.$router.push(path);
     }

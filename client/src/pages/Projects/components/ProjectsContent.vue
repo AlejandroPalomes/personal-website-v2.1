@@ -53,7 +53,8 @@ export default {
       if (this.category) {
         let params = `category=${this.category}`;
         if (this.technologies.length) {
-          params += `&technologies=${this.technologies.join(',')}`;
+          const technologiesId = this.technologies.map(technology => technology.ID);
+          params += `&technologies=${technologiesId.join(',')}`;
         }
         API.projects.getFiltered(params).then(APIProjects => { console.log('API Projetcs: ', APIProjects); this.projects = APIProjects; })
       }
