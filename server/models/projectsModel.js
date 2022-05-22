@@ -65,14 +65,21 @@ module.exports = {
   //       })
   //   })
   // },
-  getProjectsFiltered(categories, technologies){
+  getProjectsFiltered(category, technologies){
     return new Promise ((resolve, reject) => {
-      db.query(`SELECT p.ID, p.title, p.description, p.description, p.preview, GROUP_CONCAT(pt.tech_id) as technologies
+      /*db.query(`SELECT p.ID, p.title, p.description, p.description, p.preview, GROUP_CONCAT(pt.tech_id) as technologies
       FROM projects p
-      LEFT JOIN project_tech as pt ON p.ID = pt.project_id LEFT JOIN technologies t ON t.ID=pt.tech_id AND t.ID IN (${technologies})
+      LEFT JOIN project_tech as pt ON p.ID = pt.project_id LEFT JOIN technologies t ON t.ID=pt.tech_id ${technologies.length ? `AND t.ID IN (${technologies})`: ''}
       WHERE p.show = TRUE
       GROUP BY p.ID,p.title
-      HAVING COUNT(pt.tech_id) >= COUNT(t.ID) AND COUNT(t.ID) = ${technologies.length}`,
+      ${technologies.length ? `HAVING COUNT(pt.tech_id) >= COUNT(t.ID) AND COUNT(t.ID) = ${technologies.length}`: ''}`,*/
+      db.query(`SELECT p.ID, p.title, p.description, p.description, p.preview, GROUP_CONCAT(pc.category_id) as categories, GROUP_CONCAT(pt.tech_id) as technologies
+      FROM projects p
+      LEFT JOIN project_cat as pc ON p.ID = pc.project_id LEFT JOIN categories c ON c.ID=pc.category_id ${category.length ? `AND c.ID IN (${category})`: ''}
+      LEFT JOIN project_tech as pt ON p.ID = pt.project_id LEFT JOIN technologies t ON t.ID=pt.tech_id ${technologies.length ? `AND t.ID IN (${technologies})`: ''}
+      WHERE p.show = TRUE
+      GROUP BY p.ID,p.title
+      ${technologies.length ? `HAVING COUNT(pt.tech_id) >= COUNT(t.ID) AND COUNT(t.ID) = ${technologies.length}`: ''}`,
       {
         type: QueryTypes.SELECT,
         raw: true,

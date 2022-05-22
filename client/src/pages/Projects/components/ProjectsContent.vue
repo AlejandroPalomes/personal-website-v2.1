@@ -5,7 +5,7 @@
         v-for="(project) in projects"
         v-bind:project='project'
         :title="project.title"
-        body="TEST"
+        body="project.categories[0].name"
         :image="`https://res.cloudinary.com/hcqy9e1vc/image/upload/v1604369233/projects/covers/project-${project.ID}.png`"
         @click="$router.push(Routes.PROJECTS_DETAIL.to(project.ID))"
       />
@@ -17,7 +17,7 @@ import { API } from '../../../lib/network/API';
 import Button from '../../../components/button/Button.vue';
 import Card from '../../../components/card/Card.vue';
 import { Routes } from '../../../router/routes/Routes';
-// project.categories[0].name
+
 export default {
   name: 'ProjectsContent',
   components: {
