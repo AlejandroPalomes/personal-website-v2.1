@@ -1,12 +1,12 @@
 <template>
-    <button :class="`button__primary ${this.active && 'button__primary__active'}`">
+    <button :class="`button__secondary ${this.active && 'button__secondary__active'}`">
       <slot/>
     </button>
 </template>
 
 <script>
     export default {
-        name: 'Button',
+        name: 'SecondaryButton',
         props: {
           active: Boolean
         }

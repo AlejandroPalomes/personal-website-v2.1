@@ -129,6 +129,37 @@
       transform: translate(0, 0);
       box-shadow: 2px 2px 0px #222222; }
 
+.button__secondary {
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1px solid #f8f004;
+  font-weight: 300;
+  background-color: transparent;
+  color: #d3cc00;
+  position: relative;
+  transition: 0.3s; }
+  .button__secondary::after {
+    content: "Clear";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    background: #222222;
+    height: 100%;
+    width: 0%;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #f8f004;
+    transition: 0.3s; }
+  .button__secondary:hover {
+    cursor: pointer; }
+    .button__secondary:hover::after {
+      border: 1px solid #222222;
+      width: 100%;
+      transition: 0.5s; }
+
 ::-webkit-scrollbar {
   width: 7px; }
   ::-webkit-scrollbar-track {
@@ -352,9 +383,11 @@ h2 {
     gap: 96px;
     padding: 0 24px; }
   .projects__filters__technologies {
-    border: 1px solid red; }
+    width: 100%;
+    gap: 12px; }
   .projects__filters__technology {
-    border: 1px solid red;
+    padding: 4px;
+    border-radius: 8px;
     cursor: pointer; }
   .projects__filters .dropdown-menu {
     max-height: 240px;

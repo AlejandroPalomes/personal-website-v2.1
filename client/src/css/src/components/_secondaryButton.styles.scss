@@ -1,0 +1,40 @@
+.button {
+  &__secondary {
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid $YELLOW;
+    font-weight: 300;
+    background-color: transparent;
+    color: $YELLOW_DARK;
+    position: relative;
+
+    &::after {
+      content: "Clear";
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      background: $BLACK;
+      height: 100%;
+      width: 0%;
+      border-radius: 8px;
+      overflow: hidden;
+      color: $YELLOW;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::after{
+        border: 1px solid $BLACK;
+        width: 100%;
+        transition: 0.5s;
+      }
+    }
+
+    transition: 0.3s;
+  }
+}

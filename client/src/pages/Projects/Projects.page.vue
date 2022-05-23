@@ -11,21 +11,23 @@
         {{category.name}}
       </Button>
     </div>
-    <Searcher
-      v-if="selectedCategory === 1"
-      placeholder="Add a technology"
-      :onInputChange="onChangeTechInput"
-      :options="filteredTechnologies"
-      :onSelect="onSelectTech"
-    />
-    <span
-      v-for="(technology) in selectedTechnologies"
-      v-bind:key='technology.ID'
-      class="projects__filters__technology"
-      @click="onRemoveTech(technology.ID)"
+    <div class="projects__filters__technologies d-flex justify-content-center align-items-center flex-column">
+      <SecondaryButton
+        v-for="(technology) in selectedTechnologies"
+        v-bind:key='technology.ID'
+        class="projects__filters__technology"
+        @click="onRemoveTech(technology.ID)"
       >
         {{technology.name}}
-      </span>
+      </SecondaryButton>
+      <Searcher
+        v-if="selectedCategory === 1"
+        placeholder="Add a technology"
+        :onInputChange="onChangeTechInput"
+        :options="filteredTechnologies"
+        :onSelect="onSelectTech"
+      />
+    </div>
   </div>
   <ProjectsContent :category="selectedCategory" :technologies="selectedTechnologies"/>
 </div>
@@ -34,6 +36,7 @@
 <script>
 import { API } from '../../lib/network/API';
 import Button from '../../components/button/Button.vue';
+import SecondaryButton from '../../components/button/SecondaryButton.vue';
 import Card from '../../components/card/Card.vue';
 import ProjectsContent from './components/ProjectsContent.vue';
 import Searcher from '../../components/searcher/Searcher.vue';
@@ -44,6 +47,7 @@ export default {
   components: {
     Card,
     Button,
+    SecondaryButton,
     ProjectsContent,
     Searcher
   },
@@ -89,8 +93,7 @@ export default {
       return [];
     },
     getTechnologiesIds: function () {
-      // return [];
-      return this.selectedTechnologies?.map(item => item.ID);
+      return this.selectedTechnologies?.map(item => item.ID) || [];
     },
     onChangeCategory: function (categoryId) {
       const isNewCategory = categoryId !== this.selectedCategory;

@@ -14,12 +14,13 @@
     }
 
     &__technologies {
-      // border: none;
-      border: 1px solid red;
+      width: 100%;
+      gap: 12px;
     }
 
     &__technology {
-      border: 1px solid red;
+      padding: 4px;
+      border-radius: 8px;
       cursor: pointer;
     }
 
