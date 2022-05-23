@@ -56,10 +56,11 @@ export default {
           const technologiesId = this.technologies.map(technology => technology.ID);
           params += `&technologies=${technologiesId.join(',')}`;
         }
-        API.projects.getFiltered(params).then(APIProjects => { console.log('API Projetcs: ', APIProjects); this.projects = APIProjects; })
+        // API.projects.getFiltered(params).then(APIProjects => { console.log('API Projetcs: ', APIProjects); this.projects = APIProjects; })
+        API.projects.getFiltered(params).then(APIProjects => { this.projects = APIProjects; })
       }
       else {
-        console.log('get all');
+        // console.log('get all');
         API.projects.getAll().then(APIProjects => this.projects = APIProjects)
       }
     }

@@ -12,14 +12,16 @@
       </Button>
     </div>
     <div class="projects__filters__technologies d-flex justify-content-center align-items-center flex-column">
-      <SecondaryButton
-        v-for="(technology) in selectedTechnologies"
-        v-bind:key='technology.ID'
-        class="projects__filters__technology"
-        @click="onRemoveTech(technology.ID)"
-      >
-        {{technology.name}}
-      </SecondaryButton>
+      <div class="projects__filters__technologies d-flex justify-content-center align-items-center">
+        <SecondaryButton
+          v-for="(technology) in selectedTechnologies"
+          v-bind:key='technology.ID'
+          class="projects__filters__technology"
+          @click="onRemoveTech(technology)"
+        >
+          {{technology.name}}
+        </SecondaryButton>
+      </div>
       <Searcher
         v-if="selectedCategory === 1"
         placeholder="Add a technology"
@@ -108,13 +110,17 @@ export default {
       this.selectedTechnologies = [...this.selectedTechnologies, technology];
       this.filteredTechnologies = this.filteredTechnologies.filter(tech => tech.ID !== technology.ID)
       const ids = getTechnologiesIds();
+      console.log({ ids });
       const path = Routes.PROJECTS.withParams(this.selectedCategory, ids);
       this.$router.push(path);
     },
-    onRemoveTech: function(removingId) {
-      this.selectedTechnologies = this.selectedTechnologies.filter(technologyId => technologyId !== removingId);
-      // this.filteredTechnologies = this.filteredTechnologies.filter(tech => tech.ID !== technology.ID)
-      const path = Routes.PROJECTS.withParams(this.selectedCategory, this.selectedTechnologies);
+    onRemoveTech: function(removingTechnology) {
+      this.selectedTechnologies = this.selectedTechnologies.filter(technology => technology.ID !== removingTechnology.ID);
+      this.filteredTechnologies = [...this.filteredTechnologies, removingTechnology];
+      const ids = getTechnologiesIds();
+      console.log('hello');
+      console.log({ ids });
+      const path = Routes.PROJECTS.withParams(this.selectedCategory, ids);
       this.$router.push(path);
     }
   }

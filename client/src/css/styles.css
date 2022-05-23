@@ -139,7 +139,7 @@
   position: relative;
   transition: 0.3s; }
   .button__secondary::after {
-    content: "Clear";
+    content: "X";
     position: absolute;
     display: flex;
     justify-content: center;
